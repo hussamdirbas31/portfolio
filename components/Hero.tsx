@@ -10,9 +10,9 @@ const HeroSection = () => {
     <section className="py-8 px-4 sm:py-16 sm:px-8 lg:py-24 lg:px-16">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-10">
         <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
           className="col-span-1 lg:col-span-8 pt-10 text-center lg:text-left lg:pr-12"
         >
           <h1 className="text-white mb-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold">
@@ -41,16 +41,16 @@ const HeroSection = () => {
           </div>
         </motion.div>
         <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
           className="col-span-1 lg:col-span-4 flex justify-center lg:justify-end"
         >
-          <div className="rounded-full bg-[#181818] w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] lg:w-[350px] lg:h-[350px] relative">
+          <div className="relative rounded-full bg-[#181818] w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] lg:w-[350px] lg:h-[350px] flex items-center justify-center">
             <Image
               src={image}
               alt="hero image"
-              className="rounded-full absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+              className="rounded-full"
               width={300}
               height={300}
             />

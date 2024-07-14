@@ -1,4 +1,3 @@
-import About from "@/components/About";
 import Contacts from "@/components/Contacts";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
@@ -10,7 +9,6 @@ export default function Home() {
     <main className="h-[200rem] flex min-h-screen flex-col text-white bg-[#000000]">
     
       <Hero/>
-      <About/>
       <Skills/>
       <Projects/>
       <Contacts/>
