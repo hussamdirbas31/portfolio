@@ -13,16 +13,13 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="col-span-1 lg:col-span-8 pt-10 text-center lg:text-left lg:pr-12"
+          className="col-span-1 lg:col-span-8 pt-3 text-center lg:text-left lg:pr-12"
         >
           <h1 className="text-white mb-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold">
             Hello, I'm Hussam
           </h1>
           <p className="text-[#ffffff] text-sm sm:text-base lg:text-lg mb-6">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptuous.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptuous.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptuous.
-          </p>
+          I am a passionate Computer Engineering student with a strong interest in web development and design. I thrive on learning new technologies and applying them to create innovative solutions. My goal is to build user-friendly websites that not only meet client needs but also provide exceptional user experiences. I enjoy tackling challenges and solving problems through coding and creative thinking. With a solid foundation in Frontend, I am continuously expanding my skill set. I am eager to collaborate with others and contribute to exciting projects in the tech industry. Let’s create something amazing together!</p>
           <div className="flex flex-col sm:flex-row sm:justify-center lg:justify-start">
             <Link
               href="/#contact"

@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="h-[200rem] flex min-h-screen flex-col text-white bg-[#000000]">
+    <main className="bg-black h-[200rem] flex min-h-screen flex-col text-white ">
     
       <Hero/>
       <Skills/>
