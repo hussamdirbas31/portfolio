@@ -1,0 +1,17 @@
+
+import ecommerce from '@/public/projects/ecommerce.png'
+import ody from '../../public/projects/crypto.png'
+export const projectsData = [
+    {
+      title: "Ecommerce",
+      description: "Clothing store (Dashboard,add to cart)",
+      imageUrl: ecommerce,
+      link: 'https://github.com/hussamdirbas31/E-commerce'
+    },
+    {
+      title: "ODYSSEY",
+      description: "Crypto webpage",
+      imageUrl: ody,
+      link:'https://github.com/hussamdirbas31/odyssey'
+    },
+  ]
