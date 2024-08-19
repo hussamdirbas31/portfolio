@@ -1,6 +1,6 @@
 
-import ecommerce from '@/public/projects/ecommerce.png'
-import ody from '../../public/projects/crypto.png'
+import ecommerce from '@/public/projects/ecommerce.jpg'
+import ody from '../../public/projects/crypto.jpg'
 export const projectsData = [
     {
       title: "Ecommerce",
