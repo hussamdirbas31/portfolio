@@ -13,7 +13,7 @@ export const projectsData = [
       title: "Weatherapp",
       description: "Weather forcast , Openweather api fetching ",
       imageUrl: weather,
-      link:'https://github.com/hussamdirbas31/odyssey'
+      link:'https://github.com/hussamdirbas31/weather-pp'
     },
     {
       title: "ODYSSEY",
