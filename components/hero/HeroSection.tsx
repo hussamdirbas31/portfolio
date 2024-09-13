@@ -23,13 +23,13 @@ const HeroSection = () => {
           </h1>      
           <div className="flex flex-col sm:flex-row sm:justify-center lg:justify-start">
             <Link
-              href="/#contact"
+              href="https://www.linkedin.com/in/hussam-dirbas-83a77b31b/"
               className="px-6 py-3 mb-4 sm:mb-0 sm:mr-4 w-full sm:w-auto rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 bg-[#00b4b4] hover:bg-black text-white text-center"
             >
               Hire Me
             </Link>
             <Link
-              href="/"
+              href="https://drive.google.com/file/d/17-zb3FFvUxxtSBQLj0tBbihyPJsAk0In/view?usp=sharing"
               className="px-1 py-1 w-full sm:w-auto rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-800 text-white text-center"
             >
               <span className="block bg-black hover:bg-[#121212] rounded-full px-5 py-2">
