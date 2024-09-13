@@ -1,7 +1,7 @@
 
 import ecommerce from '@/public/projects/ecommerce.jpg'
 import ody from '../../public/projects/crypto.jpg'
-import weather from '@/public/projects/weather.jpg'
+import weather from '../../public/projects/'
 export const projectsData = [
     {
       title: "Ecommerce",
