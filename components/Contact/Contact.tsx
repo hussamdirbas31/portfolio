@@ -27,10 +27,10 @@ const Contact = () => {
           Contact
         </motion.h1>
         
-        <div className="flex justify-center mt-6 md:mr-14 lg:mr-14">
+        <div className="flex justify-center mt-6 md:mr-14 lg:mr-14 outline-none">
           <Link href={`mailto:${email}`} passHref>
             <motion.p
-              className="text-center w-full max-w-[20rem] p-2 sm:p-3 md:p-4  bg-[#00b4b428] text-[#00b4b4d7] rounded-xl opacity-40 hover:opacity-100 transition-opacity cursor-pointer"
+              className="text-center w-full max-w-[20rem] p-2 sm:p-3 md:p-4 outline-none  bg-[#00b4b428] text-[#00b4b4d7] rounded-xl opacity-40 hover:opacity-100 transition-opacity cursor-pointer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               initial={{ opacity: 0, y: 30 }}
