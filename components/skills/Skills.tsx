@@ -7,7 +7,7 @@ import './skill.css';
 
 const Skills = () => {
   return (
-    <div className='relative my-12 md:my-[2%] overflow-hidden border-b-[1px] border-b-gray-600 border-x-transparent border-t-transparent'>
+    <div id='skills' className='relative py-16  md:my-[2%] overflow-hidden pt-[5rem] border-b-[1px] border-b-gray-600 border-x-transparent border-t-transparent'>
       <div className="flex justify-center relative md:right-9 lg:right-9 xl:right-9 lg:py-10">
         <motion.div
           className="flex items-center"

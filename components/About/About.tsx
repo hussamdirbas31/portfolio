@@ -4,7 +4,7 @@ import React from 'react'
  
  const About = () => {
    return (
-     <div id='about' className='  relative py-10 overflow-hidden md:h-[25rem] border-b-[1px] border-b-gray-600 border-x-transparent border-t-transparent'>
+     <div id='about' className='pt-[5rem]  relative py-10 overflow-hidden md:h-[30rem] border-b-[1px] border-b-gray-600 border-x-transparent border-t-transparent'>
           <div className="flex justify-center md:relative sm:right-0 md:right-0 py-5 lg:right-9 xl:right-9 lg:py-10">
         <motion.div
           className="flex items-center"

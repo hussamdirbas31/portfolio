@@ -6,7 +6,8 @@ const Contact = () => {
   const email = 'hussamdirbas11@gmail.com';
 
   return (
-    <motion.div 
+    <motion.div
+    id='contact' 
       className="flex justify-center items-center h-[12rem] md:h-[20rem] w-full py-6"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}

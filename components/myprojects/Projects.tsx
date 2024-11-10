@@ -13,7 +13,7 @@ type Project = {
 
 const Projects = () => {
   return (
-    <div className="border-b-[1px] border-b-gray-600 py-8 px-4 sm:py-16 sm:px-8 lg:py-24 lg:px-16">
+    <div id='projects' className="border-b-[1px] border-b-gray-600 py-8 px-4 sm:py-16 sm:px-8 lg:py-24 lg:px-16">
       <motion.div
         className="flex justify-center sm:justify-start "
         initial={{ opacity: 0, y: -50 }}

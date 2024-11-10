@@ -12,7 +12,7 @@ const Nav: React.FC = () => {
   return (
     <motion.section
       className='bg-black 
-      
+              
        flex flex-row z-40 
        justify-between px-[10%]
         py-6 sticky top-0 w-full
