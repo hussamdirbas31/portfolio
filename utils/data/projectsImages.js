@@ -8,12 +8,7 @@ export const projectsData = [
       imageUrl: ecommerce,
       link: 'https://github.com/hussamdirbas31/E-commerce'
     },
-    {
-      title: "Weatherapp",
-      description: "Weather forcast , Openweather api fetching ",
-      imageUrl: weather,
-      link:'https://github.com/hussamdirbas31/weather-pp'
-    },
+    
     {
       title: "ODYSSEY",
       description: "Crypto webpage (figma)",
