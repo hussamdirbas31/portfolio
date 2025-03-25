@@ -1,58 +1,77 @@
 'use client'
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import image2 from '../../public/facebook.png';
-import image3 from '../../public/github.png';
-import image4 from '../../public/instagram.png';
-import Sidebar from './Sidebar';
+import React from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+import { FiGithub, FiInstagram, FiLinkedin } from 'react-icons/fi'
+import Sidebar from './Sidebar'
 
-const Nav: React.FC = () => {
+const Nav = () => {
   return (
-    <motion.section
-      className='bg-black 
-              
-       flex flex-row z-40 
-       justify-between px-[10%]
-        py-6 sticky top-0 w-full
-         border-b-[1px] border-b-gray-600 border-x-transparent border-t-transparent sm:h-[10%]'
+    <motion.nav
+      className="w-full bg-black border-b border-[#333] py-4 fixed top-0 z-50"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.2 }}
+      transition={{ duration: 0.3 }}
     >
-     <div className=' bg-black'> <Sidebar /></div>
-      
-      <span className='text-white text-2xl font-bold'>Portfolio</span>
-      <div className='flex flex-row bg-white  rounded-3xl px-2'>
-        <Link href="https://www.facebook.com/hussam.aldeendirbas/" target="_blank" rel="noopener noreferrer">
-          <Image
-            src={image2}
-            alt="Facebook"
-            width={30}
-            height={30}
-          />
-        </Link>
-        <Link href="https://github.com/hussamdirbas31" target="_blank" rel="noopener noreferrer">
-          <Image
-            src={image3}
-            alt="GitHub"
-            width={30}
-            height={30}
-          />
-        </Link>
-        <Link href="https://www.instagram.com/hussam_dr31" target="_blank" rel="noopener noreferrer">
-          <Image
-            src={image4}
-            alt="Instagram"
-            width={30}
-            height={30}
-          />
-        </Link>
-      </div>
-      
-    </motion.section>
-  );
-};
+      <div className="container mx-auto px-4 flex justify-between items-center">
+        {/* Sidebar Button */}
+        <div className="flex items-center">
+          <Sidebar />
+        </div>
 
-export default Nav;
+        {/* Logo/Center Text */}
+        <motion.div
+          className="text-white text-xl md:text-2xl font-bold"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+        >
+          <span className="text-[#00b4b4]">P</span>ortfolio
+        </motion.div>
+
+        {/* Social Links */}
+        <div className="flex items-center gap-4">
+          <Link 
+            href="https://github.com/hussamdirbas31" 
+            target="_blank"
+            aria-label="GitHub"
+          >
+            <motion.div
+              whileHover={{ y: -2 }}
+              className="text-white hover:text-[#00b4b4] transition-colors"
+            >
+              <FiGithub size={22} />
+            </motion.div>
+          </Link>
+          <Link 
+            href="https://www.linkedin.com/in/hussam-dirbas-83a77b31b/" 
+            target="_blank"
+            aria-label="LinkedIn"
+          >
+            <motion.div
+              whileHover={{ y: -2 }}
+              className="text-white hover:text-[#00b4b4] transition-colors"
+            >
+              <FiLinkedin size={22} />
+            </motion.div>
+          </Link>
+          <Link 
+            href="https://www.instagram.com/hussam_dr31" 
+            target="_blank"
+            aria-label="Instagram"
+          >
+            <motion.div
+              whileHover={{ y: -2 }}
+              className="text-white hover:text-[#00b4b4] transition-colors"
+            >
+              <FiInstagram size={22} />
+            </motion.div>
+          </Link>
+        </div>
+      </div>
+    </motion.nav>
+  )
+}
+
+export default Nav

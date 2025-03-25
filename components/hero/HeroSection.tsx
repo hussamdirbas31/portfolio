@@ -1,62 +1,97 @@
-"use client";
-import React from "react";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import image from '@/public/image.jpeg';
-import Link from "next/link";
+'use client'
+import { motion } from 'framer-motion'
+import Image from 'next/image'
+import Link from 'next/link'
+import profileImage from '@/public/image.jpeg'
 
 const HeroSection = () => {
+  const buttons = [
+    {
+      href: "https://www.linkedin.com/in/hussam-dirbas-83a77b31b/",
+      text: "Hire Me",
+      className: "px-8 py-3 rounded-lg bg-[#00b4b4] hover:bg-[#00a0a0] text-white font-medium transition-all duration-300 border border-[#00b4b4] hover:border-[#00a0a0] shadow-lg shadow-[#00b4b4]/20",
+      ariaLabel: "Hire Me on LinkedIn"
+    },
+    {
+      href: "https://drive.google.com/file/d/17-zb3FFvUxxtSBQLj0tBbihyPJsAk0In/view?usp=sharing",
+      text: "Download CV",
+      className: "px-8 py-3 rounded-lg bg-transparent hover:bg-[#1a1a1a] text-white font-medium transition-all duration-300 border border-[#333] hover:border-[#00b4b4]",
+      ariaLabel: "Download CV"
+    }
+  ]
+
   return (
-    <section className=" py-8 px-4 sm:py-16 sm:px-8 lg:py-24 lg:px-16 h-full">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-10">
-        <motion.div
-          initial={{ opacity: 0, y: 100 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="col-span-1 lg:col-span-8 pt-20 text-center lg:text-left lg:pr-12"
-        >
-          <h1 className="text-white mb-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold">
-            Hello, I'm Hussam Dirbas
-          </h1>
-           <h1 className="text-white mb-4 text-2xl sm:text-3xl lg:text-4xl font-light opacity-35">
-            Frontend Developer
-          </h1>      
-          <div className="flex flex-col sm:flex-row sm:justify-center lg:justify-start">
-            <Link
-              href="https://www.linkedin.com/in/hussam-dirbas-83a77b31b/"
-              className="px-6 py-3 mb-4 sm:mb-0 sm:mr-4 w-full sm:w-auto rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 bg-[#00b4b4] hover:bg-black text-white text-center"
+    <section className="w-full py-16 md:py-40 bg-black border-b border-[#333]">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+          {/* Text Content */}
+          <motion.div
+            className="lg:w-1/2"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <motion.h1 
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
             >
-              Hire Me
-            </Link>
-            <Link
-              href="https://drive.google.com/file/d/17-zb3FFvUxxtSBQLj0tBbihyPJsAk0In/view?usp=sharing"
-              className="px-1 py-1 w-full sm:w-auto rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-800 text-white text-center"
+              Hello, I'm <span className="text-[#00b4b4]">Hussam Dirbas</span>
+            </motion.h1>
+            
+            <motion.h2
+              className="text-xl md:text-2xl text-[#aaa] mb-8"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
             >
-              <span className="block bg-black hover:bg-[#121212] rounded-full px-5 py-2">
-                Download CV
-              </span>
-            </Link>
-          </div>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, y: 100 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="col-span-1 lg:col-span-4 flex justify-center lg:justify-end"
-        >
-          <div className="relative rounded-full bg-[#181818] w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] lg:w-[350px] lg:h-[350px] flex items-center justify-center">
-            <Image
-              src={image}
-              alt="hero image"
-              className="rounded-full"
-              width={300}
-              height={300}
-            />
-          </div>
-        </motion.div>
+              Frontend Developer
+            </motion.h2>
+
+            <motion.div 
+              className="flex flex-wrap gap-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+            >
+              {buttons.map((button, index) => (
+                <Link
+                  key={index}
+                  href={button.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={button.className}
+                  aria-label={button.ariaLabel}
+                >
+                  {button.text}
+                </Link>
+              ))}
+            </motion.div>
+          </motion.div>
+
+          {/* Image */}
+          <motion.div
+            className="lg:w-1/2 flex justify-center"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full border-4 border-[#00b4b4] p-1 overflow-hidden shadow-xl shadow-[#00b4b4]/30">
+              <Image
+                src={profileImage}
+                alt="Hussam Dirbas - Frontend Developer"
+                fill
+                className="object-cover rounded-full"
+                priority
+              />
+              <div className="absolute inset-0 rounded-full border border-white/10" />
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default HeroSection;
+export default HeroSection

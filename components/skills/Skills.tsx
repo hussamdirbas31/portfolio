@@ -1,98 +1,102 @@
 'use client'
-import { motion } from 'framer-motion';
-import { skillsData } from '@/utils/data/skills';
-import { skillsImage } from '@/utils/data/ImagesSkills';
-import Image from 'next/image';
-import './skill.css';
+import { motion } from 'framer-motion'
+import { skillsData } from '@/utils/data/skills'
+import { skillsImage } from '@/utils/data/ImagesSkills'
+import Image from 'next/image'
+
+type SkillType = string
 
 const Skills = () => {
+  // تقسيم المهارات إلى 3 أقسام لعرضها في 3 صفوف
+  const skillsChunks = [
+    skillsData.slice(0, 3), // الصف الأول: 3 مهارات
+    skillsData.slice(3, 7), // الصف الثاني: 4 مهارات
+    skillsData.slice(7)     // الصف الثالث: المهارات المتبقية
+  ]
+
   return (
-    <div id='skills' className='relative py-16  md:my-[2%] overflow-hidden pt-[5rem] border-b-[1px] border-b-gray-600 border-x-transparent border-t-transparent'>
-      <div className="flex justify-center relative md:right-9 lg:right-9 xl:right-9 lg:py-10">
+    <section id='skills' className='relative w-full py-16 md:py-24 bg-black border-b border-[#333]'>
+      <div className="container mx-auto px-4">
+        {/* Header Section */}
         <motion.div
-          className="flex items-center"
-          initial={{ opacity: 0, y: -50 }}
+          className="flex flex-col items-center mb-16"
+          initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
         >
-          <motion.span className="hidden sm:block w-24 h-[2px] bg-[#2c2a36]" />
-          <motion.span
-            className="bg-[#00b4b4] w-fit text-white p-2 px-5 text-lg sm:text-xl rounded-md"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+          <motion.h2
+            className="text-3xl md:text-4xl font-bold text-center mb-4 text-white"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
           >
-            Skills
-          </motion.span>
-          <motion.span className="hidden sm:block w-24 h-[2px] bg-[#2c2a36]" />
+            My <span className="text-[#00b4b4]">Skills</span>
+          </motion.h2>
+          
+          <motion.div
+            className="w-20 h-1 bg-[#00b4b4] rounded-full"
+            initial={{ scaleX: 0, originX: 0.5 }}
+            animate={{ scaleX: 1 }}
+            transition={{ 
+              duration: 0.8,
+              delay: 0.4,
+              ease: [0.22, 1, 0.36, 1]
+            }}
+          />
         </motion.div>
+
+        {/* Skills Grid */}
+        <div className="flex flex-col items-center gap-8 md:gap-12">
+          {skillsChunks.map((chunk, chunkIndex) => (
+            <motion.div
+              key={chunkIndex}
+              className="flex flex-wrap justify-center gap-6 md:gap-8 w-full"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ 
+                duration: 0.6,
+                delay: 0.3 + chunkIndex * 0.2,
+                ease: "backOut"
+              }}
+            >
+              {chunk.map((skill, skillIndex) => (
+                <motion.div
+                  key={skill}
+                  className="w-[120px] sm:w-[140px] md:w-[160px]"
+                  whileHover={{ 
+                    y: -8,
+                    transition: { duration: 0.2 }
+                  }}
+                >
+                  <div className="h-full w-full rounded-xl border border-[#333] bg-black p-4 hover:border-[#00b4b4] transition-all duration-300 group">
+                    <div className="flex flex-col items-center justify-center gap-3">
+                      <div className="h-16 w-16 md:h-20 md:w-20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <Image
+                          src={skillsImage(skill)?.src}
+                          alt={skill}
+                          width={80}
+                          height={80}
+                          className="h-full w-auto object-contain"
+                        />
+                      </div>
+                      <p className="text-white text-center font-medium text-sm md:text-base group-hover:text-[#00b4b4] transition-colors duration-300">
+                        {skill}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Grid Pattern Background */}
+        <div className="absolute inset-0 overflow-hidden opacity-5 pointer-events-none">
+          <div className="absolute inset-0 bg-[length:40px_40px] bg-[linear-gradient(to_right,#333_1px,transparent_1px),linear-gradient(to_bottom,#333_1px,transparent_1px)]" />
+        </div>
       </div>
+    </section>
+  )
+}
 
-      <motion.div
-        className='skill-container'
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.5 }}
-      >
-        <motion.div
-          className='scroll-wrapper'
-          animate={{ x: ['0%', '-50%'] }}
-          transition={{ duration: 20, ease: 'linear', repeat: Infinity }}
-        >
-          {skillsData.map((skill, id) => (
-            <div className="skill-item" key={id}>
-              <div className="h-full w-full rounded-lg border border-[#00b4b4] shadow-none shadow-gray-50 group-hover:border-[#00b4b4] transition-all duration-500">
-                <div className="flex -translate-y-[1px] justify-center">
-                  <div className="w-3/4">
-                    <div className="h-[1px] w-full bg-gradient-to-r from-[#00b4b4] to-slate-700" />
-                  </div>
-                </div>
-                <div className="flex flex-col items-center justify-center gap-3 p-6">
-                  <div className="h-8 sm:h-10 lg:h-12 xl:h-14">
-                    <Image
-                      src={skillsImage(skill)?.src}
-                      alt={skill}
-                      width={60}
-                      height={60}
-                      className="h-full  rounded-lg"
-                    />
-                  </div>
-                  <p className="text-white text-sm sm:text-lg lg:text-xl xl:text-2xl">
-                    {skill}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
-          {skillsData.map((skill, id) => (
-            <div className="skill-item" key={id + skillsData.length}>
-              <div className="h-full w-full rounded-lg border border-[#00b4b4] shadow-none shadow-gray-50 group-hover:border-[#00b4b4] transition-all duration-500">
-                <div className="flex -translate-y-[1px] justify-center">
-                  <div className="w-3/4">
-                    <div className="h-[1px] w-full bg-gradient-to-r from-[#00b4b4] to-slate-700" />
-                  </div>
-                </div>
-                <div className="flex flex-col items-center justify-center gap-3 p-6">
-                  <div className="h-8 sm:h-10 lg:h-12 xl:h-14">
-                    <Image
-                      src={skillsImage(skill)?.src}
-                      alt={skill}
-                      width={50}
-                      height={50}
-                      className="h-full w-auto rounded-lg"
-                    />
-                  </div>
-                  <p className="text-white text-sm sm:text-lg lg:text-xl xl:text-2xl">
-                    {skill}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </motion.div>
-      </motion.div>
-    </div>
-  );
-};
-
-export default Skills;
+export default Skills

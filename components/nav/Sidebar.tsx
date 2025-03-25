@@ -1,35 +1,57 @@
 'use client'
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import ToggleButton from './ToggleButton';
-import Links from './Links';
-import { IoMdClose } from "react-icons/io";
+import React, { useState } from 'react'
+import { motion } from 'framer-motion'
+import { RxHamburgerMenu, RxCross1 } from 'react-icons/rx'
+import Links from './Links'
 
-const Sidebar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-  };
+const Sidebar = () => {
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="relative ">
+    <div className="relative">
+      {/* Toggle Button */}
+      <button 
+        onClick={() => setIsOpen(true)}
+        className="p-2 text-white hover:text-[#00b4b4] transition-colors"
+        aria-label="Open menu"
+      >
+        <RxHamburgerMenu size={22} />
+      </button>
 
-      <ToggleButton toggleSidebar={toggleSidebar} />
-
+      {/* Sidebar */}
       <motion.div
         initial={{ x: '-100%' }}
         animate={{ x: isOpen ? 0 : '-100%' }}
-        transition={{ duration: 0.6 }}
-        className="fixed top-0 left-0 border border-l-gray-600 border-l-1 border-l-transparent border-y-transparent h-full w-64 bg-black shadow-lg z-50"
+        transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+        className="fixed top-0 left-0 h-screen w-64 bg-[#0a0a0a] border-r border-[#333] z-50 shadow-xl"
       >
-        <button onClick={toggleSidebar} className="p-2 text-black bg-white rounded-full absolute top-4 z-50 left-[40%]">
-          <IoMdClose size={20} />
+        {/* Close Button */}
+        <button 
+          onClick={() => setIsOpen(false)}
+          className="absolute top-4 right-4 p-2 text-white hover:text-[#00b4b4] transition-colors"
+          aria-label="Close menu"
+        >
+          <RxCross1 size={22} />
         </button>
-        <Links />
-      </motion.div>
-    </div>
-  );
-};
 
-export default Sidebar;
+        {/* Sidebar Content */}
+        <div className="h-full flex flex-col pt-16 px-6">
+          <Links />
+        </div>
+      </motion.div>
+
+      {/* Overlay */}
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.5 }}
+          exit={{ opacity: 0 }}
+          onClick={() => setIsOpen(false)}
+          className="fixed inset-0 bg-black z-40"
+        />
+      )}
+    </div>
+  )
+}
+
+export default Sidebar

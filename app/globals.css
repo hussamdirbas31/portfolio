@@ -2,12 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --max-width: 1200px;
+  
+  background-color: black;
+}
 
-body{
-    background-color: black;
-    scroll-behavior: smooth;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    overflow-x: hidden;
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+  background-color: black;
 }

@@ -1,50 +1,73 @@
 'use client'
-import { motion } from 'framer-motion';
-import Link from 'next/link';
+import { motion } from 'framer-motion'
+import Link from 'next/link'
 
 const Contact = () => {
-  const email = 'hussamdirbas11@gmail.com';
-
   return (
-    <motion.div
-    id='contact' 
-      className="flex justify-center items-center h-[12rem] md:h-[20rem] w-full py-6"
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: 'easeOut' }}
-    >
-      <motion.div 
-        className="w-full px-4 sm:px-8 md:px-16"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3, duration: 0.8, ease: 'easeOut' }}
-      >
-        <motion.h1 
-          className="text-center font-bold text-2xl md:pr-14 lg:pr-14 sm:text-3xl md:text-4xl text-[#00b4b465]"
-          initial={{ opacity: 0, y: -30 }}
+    <section id='contact' className='relative w-full py-16 md:py-24 bg-black border-b border-[#333]'>
+      <div className="container mx-auto px-4">
+        {/* Header Section */}
+        <motion.div
+          className="flex flex-col items-center mb-12"
+          initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.8, ease: 'easeOut' }}
+          transition={{ duration: 0.6 }}
         >
-          Contact
-        </motion.h1>
-        
-        <div className="flex justify-center mt-6 md:mr-14 lg:mr-14 outline-none">
-          <Link href={`mailto:${email}`} passHref>
-            <motion.p
-              className="text-center w-full max-w-[20rem] p-2 sm:p-3 md:p-4 outline-none  bg-[#00b4b428] text-[#00b4b4d7] rounded-xl opacity-40 hover:opacity-100 transition-opacity cursor-pointer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.5, ease: 'easeOut' }}
+          <motion.h2
+            className="text-3xl md:text-4xl font-bold text-center mb-4 text-white"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            Get In <span className="text-[#00b4b4]">Touch</span>
+          </motion.h2>
+          
+          <motion.div
+            className="w-20 h-1 bg-[#00b4b4] rounded-full"
+            initial={{ scaleX: 0, originX: 0.5 }}
+            animate={{ scaleX: 1 }}
+            transition={{ 
+              duration: 0.8,
+              delay: 0.4,
+              ease: [0.22, 1, 0.36, 1]
+            }}
+          />
+        </motion.div>
+
+        {/* Contact Content */}
+        <motion.div
+          className="flex flex-col items-center"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+        >
+          <p className="text-[#aaa] text-lg md:text-xl text-center max-w-2xl mb-10">
+            Have a project in mind or want to discuss potential opportunities? 
+            Feel free to reach out!
+          </p>
+
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+          >
+            <Link
+              href="mailto:hussamdirbas11@gmail.com"
+              className="px-8 py-4 bg-[#00b4b4] text-white text-lg font-medium rounded-lg hover:bg-[#008b8b] transition-colors duration-300 shadow-lg shadow-[#00b4b4]/20"
+              aria-label="Send email to Hussam Dirbas"
             >
-              {email}
-            </motion.p>
-          </Link>
-        </div>
-      </motion.div>
-    </motion.div>
-  );
+              hussamdirbas11@gmail.com
+            </Link>
+          </motion.div>
+
+          {/* Social Links (optional) */}
+          <div className="flex gap-6 mt-12">
+            {/* Add your social media links here */}
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  )
 }
 
-export default Contact;
+export default Contact
