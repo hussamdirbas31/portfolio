@@ -12,8 +12,12 @@ import Contact from "@/components/Contact/Contact"
 export default function PortfolioPage() {
   const [activeSection, setActiveSection] = useState<string | null>(null)
 
-  const handleSectionChange = (id: string | null) => {
-    setActiveSection(id)
+  const handleVisibilityChange = (id: string, visible: boolean) => {
+    if (visible) {
+      setActiveSection(id)
+    } else if (activeSection === id) {
+      setActiveSection(null)
+    }
   }
 
   return (
@@ -25,29 +29,29 @@ export default function PortfolioPage() {
 
       {/* باقي الأقسام مع التأثير الذكي */}
       <ViewportAnimation 
-        id="about" 
-        onSectionChange={handleSectionChange}
+        id="about"
+        onVisibilityChange={handleVisibilityChange}
       >
         <About />
       </ViewportAnimation>
 
       <ViewportAnimation 
-        id="skills" 
-        onSectionChange={handleSectionChange}
+        id="skills"
+        onVisibilityChange={handleVisibilityChange}
       >
         <Skills />
       </ViewportAnimation>
 
       <ViewportAnimation 
-        id="projects" 
-        onSectionChange={handleSectionChange}
+        id="projects"
+        onVisibilityChange={handleVisibilityChange}
       >
         <Projects />
       </ViewportAnimation>
 
       <ViewportAnimation 
-        id="contact" 
-        onSectionChange={handleSectionChange}
+        id="contact"
+        onVisibilityChange={handleVisibilityChange}
       >
         <Contact />
       </ViewportAnimation>
