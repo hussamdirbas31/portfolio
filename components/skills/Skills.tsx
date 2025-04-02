@@ -30,7 +30,7 @@ const Skills = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            My <span className="text-[#00b4b4]">Skills</span>
+            My <span className="text-[#00b4b4] h-full ">Skills</span>
           </motion.h2>
           
           <motion.div
