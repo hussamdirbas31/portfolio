@@ -3,16 +3,27 @@ import { motion } from 'framer-motion'
 import { skillsData } from '@/utils/data/skills'
 import { skillsImage } from '@/utils/data/ImagesSkills'
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
 
 type SkillType = string
 
 const Skills = () => {
+  const [isTouchDevice, setIsTouchDevice] = useState(false)
   // تقسيم المهارات إلى 3 أقسام لعرضها في 3 صفوف
   const skillsChunks = [
     skillsData.slice(0, 3), // الصف الأول: 3 مهارات
     skillsData.slice(3, 7), // الصف الثاني: 4 مهارات
     skillsData.slice(7)     // الصف الثالث: المهارات المتبقية
   ]
+
+  // Detect touch devices
+  useEffect(() => {
+    setIsTouchDevice(
+      'ontouchstart' in window ||
+      (navigator.maxTouchPoints > 0) ||
+      (window.matchMedia("(pointer: coarse)").matches)
+    )
+  }, [])
 
   return (
     <section id='skills' className='relative w-full py-16 md:py-24 bg-black border-b border-[#333]'>
@@ -62,11 +73,12 @@ const Skills = () => {
               {chunk.map((skill, skillIndex) => (
                 <motion.div
                   key={skill}
-                  className="w-[120px] sm:w-[140px] md:w-[160px]"
-                  whileHover={{ 
+                  className="w-[120px] sm:w-[140px] md:w-[160px] select-none"
+                  whileHover={!isTouchDevice ? { 
                     y: -8,
                     transition: { duration: 0.2 }
-                  }}
+                  } : undefined}
+                  tabIndex={-1}
                 >
                   <div className="h-full w-full rounded-xl border border-[#333] bg-black p-4 hover:border-[#00b4b4] transition-all duration-300 group">
                     <div className="flex flex-col items-center justify-center gap-3">
@@ -76,7 +88,9 @@ const Skills = () => {
                           alt={skill}
                           width={80}
                           height={80}
-                          className="h-full w-auto object-contain"
+                          className="h-full w-auto object-contain pointer-events-none"
+                          draggable="false"
+                          onContextMenu={(e) => e.preventDefault()}
                         />
                       </div>
                       <p className="text-white text-center font-medium text-sm md:text-base group-hover:text-[#00b4b4] transition-colors duration-300">
