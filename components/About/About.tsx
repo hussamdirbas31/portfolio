@@ -13,7 +13,7 @@ const About = () => {
           transition={{ duration: 0.6 }}
         >
           <motion.h2
-            className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4 text-white"
+            className="text-xl xs:text-2xl sm:text-2xl md:text-3xl font-bold text-center mb-4 text-white"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
