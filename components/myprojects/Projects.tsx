@@ -47,7 +47,7 @@ const Projects = () => {
         <div className="grid grid-cols-1 gap-12">
           {projectsData.map((item: Project, index: number) => (
             <motion.div
-              key={index}
+              key={item.title} // Better to use unique identifier instead of index
               className="group"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
@@ -57,6 +57,7 @@ const Projects = () => {
                 ease: "backOut"
               }}
               whileHover={{ scale: 1.02 }}
+              viewport={{ once: true }} // Add this to improve performance
             >
               <div className="flex flex-col lg:flex-row gap-8 items-center bg-[#0a0a0a] rounded-xl border border-[#333] p-6 hover:border-[#00b4b4] transition-all duration-300">
                 {/* Project Image */}
@@ -65,19 +66,20 @@ const Projects = () => {
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Link href={item.link} target="_blank" rel="noopener noreferrer">
+                  <Link href={item.link} target="_blank" rel="noopener noreferrer" className="block h-full">
                     <Image 
                       src={item.imageUrl} 
                       alt={item.title}
                       width={800}
                       height={450}
                       className="w-full h-auto object-cover rounded-lg shadow-lg"
+                      placeholder="blur" // Add blur placeholder
                     />
                   </Link>
                 </motion.div>
 
                 {/* Project Content */}
-                <div className="w-full lg:w-1/2 flex flex-col justify-center">
+                <div className="w-full lg:w-1/2 flex flex-col justify-center p-4">
                   <Link href={item.link} target="_blank" rel="noopener noreferrer">
                     <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 group-hover:text-[#00b4b4] transition-colors duration-300">
                       {item.title}
