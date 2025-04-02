@@ -6,7 +6,7 @@ const Contact = () => {
   return (
     <section 
       id='contact' 
-      className='relative w-full min-h-screen flex items-center justify-center bg-black border-b border-[#333] py-12 sm:py-16 md:py-20'
+      className='relative w-full min-h-screen flex items-center justify-center bg-black border-b border-[#333]  sm:py-16 md:py-20'
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
