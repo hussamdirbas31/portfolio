@@ -1,7 +1,7 @@
 
 import ecommerce from '@/public/projects/ecommerce.jpg'
 import ody from '../../public/projects/crypto.jpg'
-import weather from '@/public/projects/weather.jpg'
+import cold from '../../public/projects/cold.jpeg'
 export const projectsData = [
     {
       title: "Ecommerce",
@@ -19,7 +19,7 @@ export const projectsData = [
     {
       title: "Weather app",
       description: "daily forcast",
-      imageUrl: weather,
+      imageUrl: cold,
       link:'https://weather-pp.vercel.app/'
     },
   ]
