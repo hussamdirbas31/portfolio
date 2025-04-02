@@ -18,7 +18,7 @@ export const projectsData = [
     },
     {
       title: "Weather app",
-      description: "",
+      description: "daily forcast",
       imageUrl: weather,
       link:'https://weather-pp.vercel.app/'
     },
