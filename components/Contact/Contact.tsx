@@ -1,74 +1,134 @@
 'use client'
-import { motion } from 'framer-motion'
+import { motion, useTransform, useScroll } from 'framer-motion'
 import Link from 'next/link'
+import { useRef } from 'react'
 
 const Contact = () => {
+  const ref = useRef<HTMLElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start end', 'end start']
+  })
+  
+  const y = useTransform(scrollYProgress, [0, 1], [0, -100])
+  const opacity = useTransform(scrollYProgress, [0.2, 0.5, 0.8], [0.2, 1, 0.2])
+
   return (
     <section 
       id='contact' 
-      className='relative w-full min-h-screen flex items-center justify-center bg-black border-b border-[#333]  sm:py-16 md:py-20'
+      ref={ref}
+      className='relative w-full min-h-screen flex items-center justify-center bg-black border-b border-[#333] overflow-hidden'
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header Section */}
+      {/* تأثير الجسيمات المتحركة */}
+      <motion.div 
+        className="absolute inset-0 opacity-10 pointer-events-none"
+        style={{ opacity }}
+      >
+        {Array.from({ length: 20 }).map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full bg-[#00b4b4]"
+            style={{
+              width: Math.random() * 5 + 2 + 'px',
+              height: Math.random() * 5 + 2 + 'px',
+              left: Math.random() * 100 + '%',
+              top: Math.random() * 100 + '%'
+            }}
+            animate={{
+              y: [0, -100],
+              opacity: [0.6, 0],
+              scale: [1, 0.3]
+            }}
+            transition={{
+              duration: Math.random() * 10 + 5,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+          />
+        ))}
+      </motion.div>
+
+      {/* تأثير التوهج الخلفي */}
+      <motion.div
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle at center, #00b4b4 0%, transparent 70%)',
+          y
+        }}
+      />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* العنوان الرئيسي */}
         <motion.div
-          className="flex flex-col items-center mb-8 sm:mb-10 md:mb-12"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          className="flex flex-col items-center mb-16"
+          initial={{ opacity: 0, y: -50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true, margin: "-100px" }}
         >
           <motion.h2
-            className="text-xl xs:text-2xl sm:text-2xl md:text-3xl font-bold text-center mb-4 text-white"
+            className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-6 text-white"
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            Get In <span className="text-[#00b4b4]">Touch</span>
+            Let's <span className="text-gradient bg-clip-text text-transparent bg-gradient-to-r from-[#00b4b4] to-[#008c8c]">
+              Connect
+            </span>
           </motion.h2>
           
           <motion.div
-            className="w-20 h-1 bg-[#00b4b4] rounded-full"
-            initial={{ scaleX: 0, originX: 0.5 }}
-            animate={{ scaleX: 1 }}
+            className="w-32 h-1 bg-gradient-to-r from-transparent via-[#00b4b4] to-transparent rounded-full"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
             transition={{ 
-              duration: 0.8,
+              duration: 1,
               delay: 0.4,
               ease: [0.22, 1, 0.36, 1]
             }}
+            viewport={{ once: true }}
           />
         </motion.div>
 
-        {/* Contact Content */}
+        {/* محتوى الاتصال */}
         <motion.div
           className="flex flex-col items-center"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
+          viewport={{ once: true }}
         >
-          <p className="text-[#aaa] text-base sm:text-lg md:text-xl text-center max-w-2xl mb-8 sm:mb-10 md:mb-12 px-4">
-            Have a project in mind or want to discuss potential opportunities? 
-            Feel free to reach out!
-          </p>
-
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+          <motion.p 
+            className="text-[#ddd] text-xl md:text-2xl text-center max-w-3xl mb-12 leading-relaxed"
           >
-            <Link
-              href="mailto:hussamdirbas11@gmail.com"
-              className="px-6 py-3 sm:px-8 sm:py-4 bg-[#00b4b4] text-white text-sm sm:text-base md:text-lg font-medium rounded-lg hover:bg-[#008b8b] transition-colors duration-300 shadow-lg shadow-[#00b4b4]/20"
-              aria-label="Send email to Hussam Dirbas"
-            >
-              hussamdirbas11@gmail.com
-            </Link>
-          </motion.div>
+            Have an exciting project or want to collaborate? 
+            <br className="hidden sm:block" /> 
+            I'd love to hear from you!
+          </motion.p>
 
-          {/* Social Links (optional) */}
-          <div className="flex gap-4 sm:gap-6 mt-8 sm:mt-10 md:mt-12">
-            {/* Add your social media links here */}
-          </div>
+          {/* زر البريد الإلكتروني - بدون تأثيرات hover */}
+          <Link
+            href="mailto:hussamdirbas11@gmail.com"
+            className="px-8 py-4 bg-gradient-to-r from-[#00b4b4] to-[#008b8b] text-white text-lg md:text-xl font-medium rounded-lg"
+            aria-label="Send email to Hussam Dirbas"
+          >
+            hussamdirbas11@gmail.com
+          </Link>
         </motion.div>
       </div>
+
+      {/* نمط الشبكة الخلفية */}
+      <motion.div
+        className="absolute inset-0 z-0 bg-[url('/grid-pattern.svg')] opacity-[0.08]"
+        animate={{
+          backgroundPosition: ['0% 0%', '100% 100%']
+        }}
+        transition={{
+          duration: 40,
+          repeat: Infinity,
+          ease: 'linear'
+        }}
+      />
     </section>
   )
 }

@@ -3,7 +3,7 @@
 
 import { useState } from 'react'
 import ViewportAnimation from '@/components/viewportAnimation/ViewportAnimation'
-import HeroSection from "@/components/hero/HeroSection"
+import HeroSection from "@/components/hero/index"
 import About from "@/components/About/About"
 import Skills from "@/components/skills/Skills"
 import Projects from "@/components/myprojects/Projects"

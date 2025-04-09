@@ -5,94 +5,120 @@ import { skillsImage } from '@/utils/data/ImagesSkills'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
-type SkillType = string
-
 const Skills = () => {
   const [isTouchDevice, setIsTouchDevice] = useState(false)
-  // تقسيم المهارات إلى 3 أقسام لعرضها في 3 صفوف
+  
+  // تقسيم المهارات لتحسين العرض
   const skillsChunks = [
-    skillsData.slice(0, 3), // الصف الأول: 3 مهارات
-    skillsData.slice(3, 7), // الصف الثاني: 4 مهارات
-    skillsData.slice(7)     // الصف الثالث: المهارات المتبقية
+    skillsData.slice(0, 4), // الصف الأول
+    skillsData.slice(4, 8), // الصف الثاني
+    skillsData.slice(8)     // الصف الثالث
   ]
 
-  // Detect touch devices
   useEffect(() => {
     setIsTouchDevice(
       'ontouchstart' in window ||
-      (navigator.maxTouchPoints > 0) ||
-      (window.matchMedia("(pointer: coarse)").matches)
+      navigator.maxTouchPoints > 0 ||
+      window.matchMedia("(pointer: coarse)").matches
     )
   }, [])
 
   return (
-    <section id='skills' className='relative w-full py-16 md:py-24 bg-black border-b border-[#333]'>
-      <div className="container mx-auto px-4">
-        {/* Header Section */}
+    <section id='skills' className='relative w-full py-20 md:py-28 bg-black border-b border-[#333]'>
+      {/* تأثيرات الخلفية */}
+      <motion.div
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle at center, #00b4b4 0%, transparent 70%)'
+        }}
+        animate={{
+          opacity: [0.02, 0.05, 0.02],
+          scale: [1, 1.05, 1]
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+        {/* العنوان الرئيسي */}
         <motion.div
-          className="flex flex-col items-center mb-16"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          className="flex flex-col items-center mb-20"
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true, margin: "-100px" }}
         >
           <motion.h2
-            className="text-xl xs:text-2xl sm:text-2xl md:text-3xl font-bold text-center mb-4 text-white"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-6 text-white"
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            My <span className="text-[#00b4b4]">Skills</span>
+            My <span className="text-gradient bg-clip-text text-transparent bg-gradient-to-r from-[#00b4b4] to-[#008c8c]">
+              Skills
+            </span>
           </motion.h2>
           
           <motion.div
-            className="w-20 h-1 bg-[#00b4b4] rounded-full"
-            initial={{ scaleX: 0, originX: 0.5 }}
-            animate={{ scaleX: 1 }}
+            className="w-24 h-1 bg-gradient-to-r from-transparent via-[#00b4b4] to-transparent rounded-full"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
             transition={{ 
-              duration: 0.8,
+              duration: 1,
               delay: 0.4,
               ease: [0.22, 1, 0.36, 1]
             }}
+            viewport={{ once: true }}
           />
         </motion.div>
 
-        {/* Skills Grid */}
-        <div className="flex flex-col items-center gap-8 md:gap-12">
+        {/* شبكة المهارات */}
+        <div className="flex flex-col items-center gap-10 md:gap-14">
           {skillsChunks.map((chunk, chunkIndex) => (
             <motion.div
               key={chunkIndex}
-              className="flex flex-wrap justify-center gap-6 md:gap-8 w-full"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
+              className="flex flex-wrap justify-center gap-8 md:gap-10 w-full"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ 
                 duration: 0.6,
-                delay: 0.3 + chunkIndex * 0.2,
+                delay: 0.3 + chunkIndex * 0.15,
                 ease: "backOut"
               }}
+              viewport={{ once: true, margin: "-50px" }}
             >
-              {chunk.map((skill, skillIndex) => (
+              {chunk.map((skill) => (
                 <motion.div
                   key={skill}
-                  className="w-[120px] sm:w-[140px] md:w-[160px] select-none"
+                  className="w-[130px] sm:w-[150px] md:w-[170px] select-none"
                   whileHover={!isTouchDevice ? { 
-                    y: -8,
-                    transition: { duration: 0.2 }
+                    y: -10,
+                    scale: 1.05,
+                    transition: { type: 'spring', stiffness: 300 }
                   } : undefined}
+                  whileTap={{ scale: 0.95 }}
                   tabIndex={-1}
                 >
-                  <div className="h-full w-full rounded-xl border border-[#333] bg-black p-4 hover:border-[#00b4b4] transition-all duration-300 group">
-                    <div className="flex flex-col items-center justify-center gap-3">
-                      <div className="h-16 w-16 md:h-20 md:w-20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <div className="h-full w-full rounded-xl border border-[#333] bg-gradient-to-b from-[#111] to-[#0a0a0a] p-4 hover:border-[#00b4b4] transition-all duration-300 group hover:shadow-[0_0_20px_rgba(0,180,180,0.2)]">
+                    <div className="flex flex-col items-center justify-center gap-4">
+                      <motion.div 
+                        className="h-18 w-18 md:h-20 md:w-20 flex items-center justify-center"
+                        whileHover={{ rotate: 5 }}
+                        transition={{ type: 'spring', stiffness: 200 }}
+                      >
                         <Image
                           src={skillsImage(skill)?.src}
                           alt={skill}
                           width={80}
                           height={80}
-                          className="h-full w-auto object-contain pointer-events-none"
+                          className="h-full w-auto object-contain pointer-events-none group-hover:drop-shadow-[0_0_8px_rgba(0,180,180,0.6)] transition-all duration-300"
                           draggable="false"
                           onContextMenu={(e) => e.preventDefault()}
                         />
-                      </div>
+                      </motion.div>
                       <p className="text-white text-center font-medium text-sm md:text-base group-hover:text-[#00b4b4] transition-colors duration-300">
                         {skill}
                       </p>
@@ -104,8 +130,8 @@ const Skills = () => {
           ))}
         </div>
 
-        {/* Grid Pattern Background */}
-        <div className="absolute inset-0 overflow-hidden opacity-5 pointer-events-none">
+        {/* نمط الشبكة الخلفية */}
+        <div className="absolute inset-0 overflow-hidden opacity-[0.03] pointer-events-none">
           <div className="absolute inset-0 bg-[length:40px_40px] bg-[linear-gradient(to_right,#333_1px,transparent_1px),linear-gradient(to_bottom,#333_1px,transparent_1px)]" />
         </div>
       </div>
