@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import profileImage from '@/public/image.jpeg'
+import profileImage from '@/public/image.png'
 
 const HeroSection = () => {
   const buttons = [
@@ -70,25 +70,33 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Image */}
-          <motion.div
-            className="lg:w-1/2 flex justify-center mb-6 sm:mb-8 lg:mb-0 order-1 lg:order-2"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <div className="relative w-40 h-40 xs:w-48 xs:h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 rounded-full border-4 border-[#00b4b4] p-1 overflow-hidden shadow-xl shadow-[#00b4b4]/30">
-              <Image
-                src={profileImage}
-                alt="Hussam Dirbas - Frontend Developer"
-                fill
-                className="object-cover rounded-full"
-                priority
-                sizes="(max-width: 640px) 160px, (max-width: 768px) 192px, (max-width: 1024px) 224px, 256px"
+          {/* White Rotating Border */}
+          <div className="lg:w-1/2 flex justify-center mb-6 sm:mb-8 lg:mb-0 order-1 lg:order-2">
+            <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96">
+              
+              {/* Rotating White Border */}
+              <motion.div
+                className="absolute inset-0 rounded-full border-4 border-white shadow-[0_0_20px_4px_rgba(255,255,255,0.3)]"
+                animate={{ rotate: 360 }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 8,
+                  ease: "linear"
+                }}
               />
-              <div className="absolute inset-0 rounded-full border border-white/10" />
+
+              {/* Inner Image */}
+              <div className="absolute inset-4 rounded-full overflow-hidden shadow-2xl bg-black z-10">
+                <Image
+                  src={profileImage}
+                  alt="Hussam Dirbas - Frontend Developer"
+                  fill
+                  className="object-cover rounded-full"
+                  priority
+                />
+              </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
