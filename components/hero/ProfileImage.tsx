@@ -5,7 +5,7 @@ import profileImage from '@/public/image.jpg';
 import { imageVariants } from './types';
 
 const ProfileImage = () => {
-  // حركة دائمة للصورة
+  // حركة دائمة معدلة لمنع التمرير الأفقي
   const floatingAnimation = {
     y: [0, -15, 0],
     rotate: [0, 3, -3, 0],
@@ -25,7 +25,7 @@ const ProfileImage = () => {
 
   return (
     <motion.div 
-      className="lg:w-1/2 relative flex justify-center"
+      className="lg:w-1/2 relative flex justify-center overflow-hidden" // أضفنا overflow-hidden هنا
       initial="hidden"
       animate={["visible", "floating"]}
       whileHover="hover"
@@ -34,7 +34,7 @@ const ProfileImage = () => {
         floating: floatingAnimation
       }}
     >
-      <div className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80">
+      <div className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 overflow-hidden"> {/* وأضفنا overflow-hidden هنا أيضًا */}
         {/* تأثير التوهج */}
         <motion.div
           className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_center,#00b4b4_0%,transparent_60%)] blur-lg"
@@ -54,6 +54,7 @@ const ProfileImage = () => {
         {/* الصورة الشخصية */}
         <motion.div
           className="absolute inset-3 rounded-full overflow-hidden border-4 border-[#00b4b4]/20"
+          style={{ overflow: 'hidden' }} // إضافة تأمين إضافي
           whileInView={floatingAnimation}
         >
           <Image
@@ -68,7 +69,7 @@ const ProfileImage = () => {
 
         {/* حلقة متوهجة */}
         <motion.div
-          className="absolute inset-0 rounded-full border-4 border-transparent"
+          className="absolute inset-0 rounded-full border-4 border-transparent overflow-hidden" // أضفنا overflow-hidden هنا
           initial={{ opacity: 0 }}
           animate={{
             opacity: [0, 0.6, 0],
