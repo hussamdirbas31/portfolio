@@ -9,6 +9,13 @@ import Skills from "@/components/skills/Skills"
 import Projects from "@/components/myprojects/Projects"
 import Contact from "@/components/Contact/Contact"
 
+const sections = [
+  { id: 'about', component: <About /> },
+  { id: 'skills', component: <Skills /> },
+  { id: 'projects', component: <Projects /> },
+  { id: 'contact', component: <Contact /> },
+]
+
 export default function PortfolioPage() {
   const [activeSection, setActiveSection] = useState<string | null>(null)
 
@@ -27,33 +34,15 @@ export default function PortfolioPage() {
       </section>
 
       {/* باقي الأقسام مع التأثير الذكي */}
-      <ViewportAnimation 
-        id="about"
-        onVisibilityChange={handleVisibilityChange}
-      >
-        <About />
-      </ViewportAnimation>
-
-      <ViewportAnimation 
-        id="skills"
-        onVisibilityChange={handleVisibilityChange}
-      >
-        <Skills />
-      </ViewportAnimation>
-
-      <ViewportAnimation 
-        id="projects"
-        onVisibilityChange={handleVisibilityChange}
-      >
-        <Projects />
-      </ViewportAnimation>
-
-      <ViewportAnimation 
-        id="contact"
-        onVisibilityChange={handleVisibilityChange}
-      >
-        <Contact />
-      </ViewportAnimation>
+      {sections.map(({ id, component }) => (
+        <ViewportAnimation 
+          key={id}
+          id={id}
+          onVisibilityChange={handleVisibilityChange}
+        >
+          {component}
+        </ViewportAnimation>
+      ))}
     </main>
   )
 }
