@@ -22,7 +22,6 @@ export default function PortfolioPage() {
 
   return (
     <main className="bg-black text-white">
-      {/* الهيرو - دائماً مرئي */}
       <section className="min-h-screen">
         <HeroSection />
       </section>

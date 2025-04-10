@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Particle } from './types';
 
 const Particles = () => {
-  const particles: Particle[] = Array.from({ length: 20 }).map((_, i) => ({
+  const particles: Particle[] = Array.from({ length: 10 }).map((_, i) => ({
     id: i,
     x: Math.random() * 100,
     y: Math.random() * 100,

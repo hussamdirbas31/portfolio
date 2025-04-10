@@ -5,7 +5,7 @@ import HeroButtons from './HeroButtons';
 
 const HeroText = () => (
   <motion.div 
-    className="lg:w-1/2 text-center lg:text-left"
+    className="w-full lg:w-1/2 text-center lg:text-left px-4 sm:px-0"
     initial="hidden"
     animate="visible"
     variants={{
@@ -19,7 +19,7 @@ const HeroText = () => (
   >
     <motion.div className="overflow-hidden mb-4 md:mb-6">
       <motion.h1 
-        className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-2 leading-tight"
+        className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-2 leading-tight"
         variants={textVariants}
         custom={0}
       >
@@ -44,7 +44,7 @@ const HeroText = () => (
     </motion.div>
 
     <motion.h2
-      className="text-lg md:text-xl text-[#aaa] mb-6 md:mb-8"
+      className="text-base sm:text-lg md:text-xl text-[#aaa] mb-6 md:mb-8"
       variants={textVariants}
       custom={1}
       animate={{

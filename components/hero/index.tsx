@@ -19,31 +19,21 @@ const HeroSection = () => {
   return (
     <section 
       ref={ref}
-      className="w-full min-h-screen flex items-center justify-center  relative overflow-hidden"
+      className="w-full min-h-screen flex items-center justify-center  relative"
     >
       <Particles />
       
       <motion.div 
-        className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
-        style={{ y, scale }}
+        className="container mx-auto px-4 sm:px-2 lg:px-8 relative z-10"
+        
       >
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 md:gap-12">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 overflow-hidden md:gap-12">
           <HeroText />
           <ProfileImage />
         </div>
       </motion.div>
 
-      <motion.div
-        className="absolute inset-0 z-0  opacity-[0.08]"
-        animate={{
-          backgroundPosition: ['0% 0%', '100% 100%']
-        }}
-        transition={{
-          duration: 40,
-          repeat: Infinity,
-          ease: 'linear'
-        }}
-      />
+     
     </section>
   );
 };

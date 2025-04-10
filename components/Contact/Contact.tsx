@@ -10,7 +10,7 @@ const Contact = () => {
     offset: ['start end', 'end start']
   })
   
-  const y = useTransform(scrollYProgress, [0, 1], [0, -100])
+  const y = useTransform(scrollYProgress, [0, 6], [0, -100])
   const opacity = useTransform(scrollYProgress, [0.2, 0.5, 0.8], [0.2, 1, 0.2])
 
   return (
