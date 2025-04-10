@@ -57,13 +57,16 @@ const Skills = () => {
           {skillsData.map((skill) => (
             <motion.div
               key={skill}
-              className="p-1 select-none"
+              layout
+              className="p-1 select-none touch-manipulation"
               whileHover={{
-                y: -4,
-                scale: 1.04,
-                transition: { type: 'spring', stiffness: 260, damping: 12 }
+                scale: 1.03,
+                transition: { type: 'spring', stiffness: 180, damping: 10 }
               }}
-              whileTap={{ scale: 0.97 }}
+              whileTap={{
+                scale: 1.01,
+                transition: { duration: 0.2 }
+              }}
             >
               <div className="h-full w-full rounded-xl border border-[#2c2c2c] bg-gradient-to-br from-[#101010] to-[#0d0d0d] p-3 hover:border-[#00b4b4] transition-all duration-300 group hover:shadow-[0_0_14px_rgba(0,180,180,0.15)]">
                 <div className="flex flex-col items-center justify-center gap-3">
