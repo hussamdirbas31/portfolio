@@ -7,12 +7,12 @@ const Particles = () => {
     id: i,
     x: Math.random() * 100,
     y: Math.random() * 100,
-    size: Math.random() * 2 + 1,
+    size: Math.random() * 30 + 1,
     duration: Math.random() * 4 + 2
   }));
 
   return (
-    <div className="absolute inset-0 z-0 pointer-events-none">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
       {particles.map((particle) => (
         <motion.div
           key={particle.id}
@@ -21,7 +21,8 @@ const Particles = () => {
             width: `${particle.size}px`,
             height: `${particle.size}px`,
             left: `${particle.x}%`,
-            top: `${particle.y}%`
+            top: `${particle.y}%`,
+            willChange: 'transform' // تحسين الأداء
           }}
           animate={{
             y: [0, -80],

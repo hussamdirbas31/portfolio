@@ -19,7 +19,7 @@ const HeroSection = () => {
   return (
     <section 
       ref={ref}
-      className="w-full min-h-screen flex items-center justify-center bg-black relative overflow-hidden"
+      className="w-full min-h-screen flex items-center justify-center  relative overflow-hidden"
     >
       <Particles />
       
@@ -34,7 +34,7 @@ const HeroSection = () => {
       </motion.div>
 
       <motion.div
-        className="absolute inset-0 z-0 bg-[url('/grid-pattern.svg')] opacity-[0.08]"
+        className="absolute inset-0 z-0  opacity-[0.08]"
         animate={{
           backgroundPosition: ['0% 0%', '100% 100%']
         }}

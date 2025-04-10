@@ -12,7 +12,7 @@ const About = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.15,
-        delayChildren: 0.1
+        delayChildren: 0.5
       }
     }
   }
