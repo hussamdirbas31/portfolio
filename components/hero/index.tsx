@@ -4,7 +4,7 @@ import { useRef } from 'react';
 import Particles from './Particles';
 import HeroText from './HeroText';
 import ProfileImage from './ProfileImage';
-import { SPRING_CONFIG } from '@/lib/constants';
+import { SPRING_CONFIG } from '@/utils/constants';
 
 const HeroSection = () => {
   const ref = useRef<HTMLDivElement>(null);

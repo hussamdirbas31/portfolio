@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ButtonProps, textVariants } from './types';
-import { PRIMARY_COLOR, SECONDARY_COLOR, BUTTONS } from '@/lib/constants';
+import { PRIMARY_COLOR, SECONDARY_COLOR, BUTTONS } from '@/utils/constants';
 
 const Button = ({ href, text, className }: ButtonProps) => (
   <motion.div

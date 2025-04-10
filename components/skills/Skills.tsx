@@ -6,24 +6,8 @@ import Image from 'next/image'
 
 const Skills = () => {
   return (
-    <section id='skills' className='relative w-full py-14 sm:py-20 lg:py-28 bg-black border-b border-[#222] overflow-hidden'>
+    <section id='skills' className='relative   w-full py-14 sm:py-20 lg:py-28 bg-black border-b border-[#222] overflow-hidden'>
 
-      {/* خلفية متحركة ناعمة */}
-      <motion.div
-        className="absolute inset-0 pointer-events-none opacity-5"
-        style={{
-          background: 'radial-gradient(circle at center, #00b4b4 0%, transparent 70%)',
-        }}
-        animate={{
-          scale: [1, 1.08, 1],
-          opacity: [0.04, 0.07, 0.04],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative">
         {/* العنوان */}

@@ -22,9 +22,9 @@ export default function ViewportAnimation({
   onVisibilityChange
 }: ViewportAnimationProps) {
   const controls = useAnimation()
-  const [ref, inView] = useInView({
+  const [ref, inView, entry] = useInView({
     threshold,
-    triggerOnce: false,
+    triggerOnce: true, // تغيير من false إلى true
     rootMargin: '-50px 0px -50px 0px'
   })
 
@@ -32,10 +32,8 @@ export default function ViewportAnimation({
     if (inView) {
       controls.start('visible')
       onVisibilityChange?.(id, true)
-    } else {
-      controls.start('hidden')
-      onVisibilityChange?.(id, false)
     }
+    // تم إزالة الجزء else لأننا نريد المحتوى يبقى مرئياً
   }, [inView, controls, id, onVisibilityChange])
 
   const variants = {
@@ -65,6 +63,12 @@ export default function ViewportAnimation({
       variants={variants}
       className={`relative ${className}`}
       style={{ minHeight }}
+      // إضافة هذه الخاصية لمنع العودة إلى الحالة المخفية
+      onAnimationComplete={() => {
+        if (inView) {
+          controls.set('visible')
+        }
+      }}
     >
       {children}
     </motion.section>

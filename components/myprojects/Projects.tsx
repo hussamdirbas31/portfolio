@@ -20,29 +20,12 @@ const Projects = () => {
     <section 
       id='projects' 
       ref={sectionRef}
-      className='relative w-full py-20 md:py-28 bg-black border-b border-[#333] overflow-hidden'
+      className='relative w-full py-20 bg-black border-b border-[#333]'
     >
-      {/* تأثير التوهج الخلفي */}
-      <motion.div
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
-        style={{
-          background: 'radial-gradient(circle at center, #00b4b4 0%, transparent 70%)'
-        }}
-        animate={{
-          opacity: [0.02, 0.05, 0.02],
-          scale: [1, 1.05, 1]
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* العنوان الرئيسي */}
         <motion.div
-          className="flex flex-col items-center mb-20"
+          className="flex flex-col items-center mb-12 sm:mb-20"
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -73,7 +56,7 @@ const Projects = () => {
         </motion.div>
 
         {/* شبكة المشاريع */}
-        <div className="grid grid-cols-1 gap-14">
+        <div className="grid grid-cols-1 gap-8 sm:gap-14">
           {projectsData.map((item: Project, index: number) => (
             <motion.div
               key={item.title}
@@ -93,7 +76,7 @@ const Projects = () => {
                 className="absolute inset-0 bg-[#00b4b4] opacity-0 group-hover:opacity-[0.03] rounded-xl transition-opacity duration-300 pointer-events-none"
               />
 
-              <div className="flex flex-col lg:flex-row gap-8 items-center bg-gradient-to-b from-[#111] to-[#0a0a0a] rounded-xl border border-[#333] p-6 hover:border-[#00b4b4] transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(0,180,180,0.1)]">
+              <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 items-center bg-gradient-to-b from-[#111] to-[#0a0a0a] rounded-xl border border-[#333] p-4 sm:p-6 hover:border-[#00b4b4] transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(0,180,180,0.1)]">
                 {/* صورة المشروع */}
                 <motion.div 
                   className="w-full lg:w-1/2 overflow-hidden rounded-lg relative"
@@ -115,23 +98,23 @@ const Projects = () => {
                 </motion.div>
 
                 {/* محتوى المشروع */}
-                <div className="w-full lg:w-1/2 flex flex-col justify-center p-4">
+                <div className="w-full lg:w-1/2 flex flex-col justify-center p-2 sm:p-4">
                   <Link href={item.link} target="_blank" rel="noopener noreferrer">
-                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-[#00b4b4] transition-colors duration-300">
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 sm:mb-4 group-hover:text-[#00b4b4] transition-colors duration-300">
                       {item.title}
                     </h3>
                   </Link>
-                  <p className="text-[#ddd] text-lg leading-relaxed mb-6">
+                  <p className="text-[#ddd] text-base sm:text-lg leading-relaxed mb-4 sm:mb-6">
                     {item.description}
                   </p>
                   
                   {/* تقنيات مستخدمة */}
                   {item.technologies && (
-                    <div className="flex flex-wrap gap-3 mb-6">
+                    <div className="flex flex-wrap gap-2 sm:gap-3 mb-4 sm:mb-6">
                       {item.technologies.map(tech => (
                         <span 
                           key={tech}
-                          className="px-3 py-1 bg-[#0a0a0a] border border-[#333] text-[#00b4b4] text-sm rounded-full"
+                          className="px-2 sm:px-3 py-1 bg-[#0a0a0a] border border-[#333] text-[#00b4b4] text-xs sm:text-sm rounded-full"
                         >
                           {tech}
                         </span>
@@ -143,7 +126,7 @@ const Projects = () => {
                     href={item.link} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="relative self-start mt-2 px-6 py-3 bg-gradient-to-r from-[#00b4b4] to-[#008b8b] text-white rounded-lg overflow-hidden group-hover:shadow-[0_0_15px_rgba(0,180,180,0.5)] transition-all duration-300"
+                    className="relative self-start mt-2 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-[#00b4b4] to-[#008b8b] text-white rounded-lg overflow-hidden group-hover:shadow-[0_0_15px_rgba(0,180,180,0.5)] transition-all duration-300 text-sm sm:text-base"
                   >
                     <span className="relative z-10">View Project</span>
                     <motion.div 
