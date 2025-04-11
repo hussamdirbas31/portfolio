@@ -8,7 +8,7 @@ export const BUTTONS = [
     className: "primary-button"
   },
   {
-    href: "https://drive.google.com/file/d/1RhxmWv7jjmtVjRsFrB8_0dTmmdEwwKX7/view?usp=drive_link",
+    href: "https://drive.google.com/file/d/1RhxmWv7jjmtVjRsFrB8_0dTmmdEwwKX7/view?usp=sharing",
     text: "Download CV",
     className: "secondary-button"
   }
