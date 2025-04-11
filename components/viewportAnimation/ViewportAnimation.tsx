@@ -49,7 +49,7 @@ export default function ViewportAnimation({
     },
     hidden: {
       opacity: 0,
-      y: 30,
+      y: 20,
       transition: { duration: 0.3 }
     }
   }

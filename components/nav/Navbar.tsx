@@ -11,7 +11,7 @@ const Nav = () => {
       className="w-full bg-black border-b border-[#333] py-3 sm:py-4 fixed top-0 z-50"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
+      
     >
       <div className="container mx-auto px-4 sm:px-6 flex justify-between items-center relative">
         {/* Sidebar Button - Left-aligned */}

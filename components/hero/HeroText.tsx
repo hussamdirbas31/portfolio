@@ -11,7 +11,7 @@ const HeroText = () => (
     variants={{
       visible: {
         transition: {
-          staggerChildren: 0.15,
+          staggerChildren: 0,
           delayChildren: 0.2
         }
       }
