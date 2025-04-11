@@ -8,7 +8,7 @@ export const BUTTONS = [
     className: "primary-button"
   },
   {
-    href: "https://drive.google.com/drive/home?dmr=1&ec=wgc-drive-hero-goto",
+    href: "https://drive.google.com/file/d/1RhxmWv7jjmtVjRsFrB8_0dTmmdEwwKX7/view?usp=drive_link",
     text: "Download CV",
     className: "secondary-button"
   }
