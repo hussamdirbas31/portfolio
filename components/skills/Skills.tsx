@@ -17,7 +17,7 @@ const Skills = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-white text-3xl sm:text-4xl font-bold text-center mb-4">
+          <h2 className="text-white text-4xl sm:text-5xl lg:text-6xl font-bold text-center mb-4">
             My <span className="relative">
               <span className="text-[#00b4b4]">Skills</span>
               <motion.span
