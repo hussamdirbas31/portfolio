@@ -10,8 +10,20 @@ const Contact = () => {
     offset: ['start end', 'end start']
   })
   
-  const y = useTransform(scrollYProgress, [0, 6], [0, -100])
-  const opacity = useTransform(scrollYProgress, [0.2, 0.5, 0.8], [0.2, 1, 0.2])
+  const y = useTransform(scrollYProgress, [0, 1], [0, -50])
+
+  // إنشاء فقاعات عشوائية
+  const bubbles = Array.from({ length: 15 }).map((_, i) => {
+    const size = Math.random() * 100 + 50
+    return {
+      id: i,
+      size,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      delay: Math.random() * 5,
+      duration: Math.random() * 10 + 10
+    }
+  })
 
   return (
     <section 
@@ -19,43 +31,33 @@ const Contact = () => {
       ref={ref}
       className='relative w-full min-h-screen flex items-center justify-center bg-black border-b border-[#333] overflow-hidden'
     >
-      {/* تأثير الجسيمات المتحركة */}
-      <motion.div 
-        className="absolute inset-0 opacity-10 pointer-events-none"
-        style={{ opacity }}
-      >
-        {Array.from({ length: 20 }).map((_, i) => (
+      {/* تأثير الفقاعات */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
+        {bubbles.map(bubble => (
           <motion.div
-            key={i}
+            key={bubble.id}
             className="absolute rounded-full bg-[#00b4b4]"
             style={{
-              width: Math.random() * 5 + 2 + 'px',
-              height: Math.random() * 5 + 2 + 'px',
-              left: Math.random() * 100 + '%',
-              top: Math.random() * 100 + '%'
+              width: `${bubble.size}px`,
+              height: `${bubble.size}px`,
+              left: `${bubble.x}%`,
+              top: `${bubble.y}%`,
+              opacity: 0.3
             }}
             animate={{
-              y: [0, -100],
-              opacity: [0.6, 0],
-              scale: [1, 0.3]
+              y: [0, -1000],
+              x: [0, (Math.random() - 0.5) * 200],
+              opacity: [0.3, 0]
             }}
             transition={{
-              duration: Math.random() * 10 + 5,
+              duration: bubble.duration,
+              delay: bubble.delay,
               repeat: Infinity,
               ease: "linear"
             }}
           />
         ))}
-      </motion.div>
-
-      {/* تأثير التوهج الخلفي */}
-      <motion.div
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
-        style={{
-          background: 'radial-gradient(circle at center, #00b4b4 0%, transparent 70%)',
-          y
-        }}
-      />
+      </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* العنوان الرئيسي */}
@@ -64,27 +66,24 @@ const Contact = () => {
           initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true }}
         >
           <motion.h2
-            className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-6 text-white"
+            className="text-4xl sm:text-5xl font-bold text-center mb-6 text-white"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            Let's <span className="text-gradient bg-clip-text text-transparent bg-gradient-to-r from-[#00b4b4] to-[#008c8c]">
-              Connect
-            </span>
+            <span className="text-[#00b4b4]">Get In</span> Touch
           </motion.h2>
           
           <motion.div
-            className="w-32 h-1 bg-gradient-to-r from-transparent via-[#00b4b4] to-transparent rounded-full"
+            className="w-24 h-1 bg-gradient-to-r from-[#00b4b4] to-[#008c8c] rounded-full"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             transition={{ 
               duration: 1,
-              delay: 0.4,
-              ease: [0.22, 1, 0.36, 1]
+              delay: 0.4
             }}
             viewport={{ once: true }}
           />
@@ -99,36 +98,27 @@ const Contact = () => {
           viewport={{ once: true }}
         >
           <motion.p 
-            className="text-[#ddd] text-xl md:text-2xl text-center max-w-3xl mb-12 leading-relaxed"
+            className="text-[#ddd] text-xl text-center max-w-2xl mb-12 leading-relaxed"
           >
-            Have an exciting project or want to collaborate? 
-            <br className="hidden sm:block" /> 
-            I'd love to hear from you!
+            Ready to start your project? Let's talk about how I can help you bring your ideas to life.
           </motion.p>
 
-          {/* زر البريد الإلكتروني - بدون تأثيرات hover */}
-          <Link
-            href="mailto:hussamdirbas11@gmail.com"
-            className="px-8 py-4 bg-gradient-to-r from-[#00b4b4] to-[#008b8b] text-white text-lg md:text-xl font-medium rounded-lg"
-            aria-label="Send email to Hussam Dirbas"
+          {/* زر البريد الإلكتروني */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ type: 'spring', stiffness: 300 }}
           >
-            hussamdirbas11@gmail.com
-          </Link>
+            <Link
+              href="mailto:hussamdirbas11@gmail.com"
+              className="inline-block px-8 py-4 bg-gradient-to-r from-[#00b4b4] to-[#008b8b] text-white text-lg font-medium rounded-lg shadow-lg hover:shadow-[0_0_25px_rgba(0,180,180,0.4)] transition-all"
+              aria-label="Send email"
+            >
+              Contact Me
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
-
-      {/* نمط الشبكة الخلفية */}
-      <motion.div
-        className="absolute inset-0 z-0 bg-[url('/grid-pattern.svg')] opacity-[0.08]"
-        animate={{
-          backgroundPosition: ['0% 0%', '100% 100%']
-        }}
-        transition={{
-          duration: 40,
-          repeat: Infinity,
-          ease: 'linear'
-        }}
-      />
     </section>
   )
 }

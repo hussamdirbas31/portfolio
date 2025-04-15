@@ -1,5 +1,5 @@
-export const PRIMARY_COLOR = '#00b4b4';
-export const SECONDARY_COLOR = '#008c8c';
+export const PRIMARY_COLOR = '#1e40af';    // blue-800
+export const SECONDARY_COLOR = '#1e3a8a';  // blue-900
 
 export const BUTTONS = [
   {

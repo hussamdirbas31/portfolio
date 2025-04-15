@@ -6,73 +6,84 @@ import Image from 'next/image'
 
 const Skills = () => {
   return (
-    <section id='skills' className='relative   w-full py-14 sm:py-20 lg:py-28 bg-black border-b border-[#222] overflow-hidden'>
-
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative">
+    <section id='skills' className='relative w-full py-16 bg-black '>
+      <div className="container mx-auto px-4">
+        
         {/* العنوان */}
         <motion.div
-          className="flex flex-col items-center mb-14"
-          initial={{ opacity: 0, y: -30 }}
+          className="flex flex-col items-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-white text-3xl sm:text-4xl lg:text-5xl font-extrabold text-center mb-4 tracking-tight">
-            My <span className="bg-gradient-to-r from-[#00b4b4] to-[#008c8c] bg-clip-text text-transparent">Skills</span>
+          <h2 className="text-white text-3xl sm:text-4xl font-bold text-center mb-4">
+            My <span className="relative">
+              <span className="text-[#00b4b4]">Skills</span>
+              <motion.span
+                className="absolute -bottom-1 left-0 w-full h-1 bg-[#008c8c]"
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                viewport={{ once: true }}
+              />
+            </span>
           </h2>
-          <motion.div
-            className="w-24 h-1 bg-gradient-to-r from-transparent via-[#00b4b4] to-transparent rounded-full"
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            transition={{ duration: 1, ease: [0.65, 0, 0.35, 1] }}
-            viewport={{ once: true }}
-          />
+          <p className="text-[#aaa] text-center max-w-md">
+            Technologies I work with regularly
+          </p>
         </motion.div>
 
-        {/* المهارات */}
+        {/* شبكة المهارات بنفس تصميم About */}
         <motion.div
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-5 sm:gap-6 md:gap-8"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: 'easeOut' }}
+          className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-5"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          {skillsData.map((skill) => (
+          {skillsData.map((skill, index) => (
             <motion.div
               key={skill}
-              layout
-              className="p-1 select-none touch-manipulation"
+              className="rounded-xl border border-[#2c2c2c] bg-gradient-to-br from-[#101010] to-[#0d0d0d] p-3 group"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
+              viewport={{ once: true }}
               whileHover={{
-                scale: 1.03,
-                transition: { type: 'spring', stiffness: 180, damping: 10 }
-              }}
-              whileTap={{
-                scale: 1.01,
-                transition: { duration: 0.2 }
+                borderColor: "#00b4b4",
+                boxShadow: "0 0 15px rgba(0, 180, 180, 0.1)",
+                transition: { duration: 0.3 }
               }}
             >
-              <div className="h-full w-full rounded-xl border border-[#2c2c2c] bg-gradient-to-br from-[#101010] to-[#0d0d0d] p-3 hover:border-[#00b4b4] transition-all duration-300 group hover:shadow-[0_0_14px_rgba(0,180,180,0.15)]">
-                <div className="flex flex-col items-center justify-center gap-3">
-                  <div className="h-14 w-14 sm:h-16 sm:w-16 flex items-center justify-center">
-                    <Image
-                      src={skillsImage(skill)?.src}
-                      alt={skill}
-                      width={60}
-                      height={60}
-                      className="h-full w-auto object-contain pointer-events-none transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(0,180,180,0.3)]"
-                      draggable="false"
-                      onContextMenu={(e) => e.preventDefault()}
-                    />
-                  </div>
-                  <p className="text-white text-center text-sm sm:text-base font-medium group-hover:text-[#00b4b4] transition-colors duration-300 leading-tight">
-                    {skill}
-                  </p>
+              <div className="flex flex-col items-center">
+                <div className="relative w-14 h-14 mb-3">
+                  <Image
+                    src={skillsImage(skill)?.src}
+                    alt={skill}
+                    width={56}
+                    height={56}
+                    className="w-full h-full object-contain group-hover:drop-shadow-[0_0_8px_rgba(0,180,180,0.4)]"
+                    draggable="false"
+                  />
                 </div>
+                
+                <p className="text-white text-sm font-medium text-center group-hover:text-[#00b4b4] transition-colors">
+                  {skill}
+                </p>
               </div>
             </motion.div>
           ))}
         </motion.div>
+
+        {/* فاصل زخرفي متطابق مع About */}
+        <motion.div
+          className="mt-16 mx-auto w-24 h-1 bg-gradient-to-r from-[#00b4b4] to-[#008c8c] rounded-full"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          viewport={{ once: true }}
+        />
       </div>
     </section>
   )

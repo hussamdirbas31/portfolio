@@ -1,4 +1,3 @@
-// app/page.tsx
 'use client'
 
 import { useState } from 'react'
@@ -21,10 +20,10 @@ export default function PortfolioPage() {
   }
 
   return (
-    <main className="bg-black text-white">
+    <main className="text-white">
       <section className="min-h-screen">
         <HeroSection />
-      </section>
+      </section> 
 
       {/* باقي الأقسام مع التأثير الذكي */}
       <ViewportAnimation 
