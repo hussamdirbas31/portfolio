@@ -1,21 +1,13 @@
 'use client';
-import { motion, useTransform, useScroll, useSpring } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import Particles from './Particles';
 import HeroText from './HeroText';
 import ProfileImage from './ProfileImage';
-import { SPRING_CONFIG } from '@/utils/constants';
 
 const HeroSection = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start start', 'end start']
-  });
-  
-  const y = useSpring(useTransform(scrollYProgress, [0, 1], [0, -80]), SPRING_CONFIG);
-  const scale = useSpring(useTransform(scrollYProgress, [0, 1], [1, 0.92]), SPRING_CONFIG);
-
+ 
   return (
     <section 
       ref={ref}
