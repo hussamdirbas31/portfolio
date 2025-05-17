@@ -6,13 +6,13 @@ import HeroButtons from './HeroButtons';
 const HeroText = () => (
   <motion.div 
     className="w-full lg:w-1/2 text-center lg:text-left px-4 sm:px-0"
-    initial="hidden"
+    initial="visible"
     animate="visible"
     variants={{
       visible: {
         transition: {
-          staggerChildren: 0,
-          delayChildren: 0.2
+          staggerChildren: 1,
+          delayChildren: 0.7
         }
       }
     }}

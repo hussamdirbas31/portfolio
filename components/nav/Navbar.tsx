@@ -9,9 +9,7 @@ const Nav = () => {
   return (
     <motion.nav
       className="w-full bg-black border-b border-[#333] py-3 sm:py-4 fixed top-0 z-50"
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      
+    
     >
       <div className="container mx-auto px-4 sm:px-6 flex justify-between items-center relative">
         {/* Sidebar Button - Left-aligned */}
@@ -22,9 +20,7 @@ const Nav = () => {
         {/* Centered Logo Text */}
         <motion.div
           className="flex-1 flex items-center justify-center absolute left-0 right-0 mx-auto w-fit"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
+         
         >
           <span className="text-white text-xl sm:text-2xl font-bold">
             <span className="text-[#00b4b4]">P</span>ortfolio
@@ -43,7 +39,7 @@ const Nav = () => {
               whileHover={{ y: -2 }}
               className="text-white hover:text-[#00b4b4] transition-colors"
             >
-              <FiGithub size={20} className="w-5 h-5 sm:w-6 sm:h-6" />
+              <FiGithub size={20}  />
             </motion.div>
           </Link>
           <Link 
@@ -56,7 +52,7 @@ const Nav = () => {
               whileHover={{ y: -2 }}
               className="text-white hover:text-[#00b4b4] transition-colors"
             >
-              <FiLinkedin size={20} className="w-5 h-5 sm:w-6 sm:h-6" />
+              <FiLinkedin size={20}  />
             </motion.div>
           </Link>
           <Link 
@@ -69,7 +65,7 @@ const Nav = () => {
               whileHover={{ y: -2 }}
               className="text-white hover:text-[#00b4b4] transition-colors"
             >
-              <FiInstagram size={20} className="w-5 h-5 sm:w-6 sm:h-6" />
+              <FiInstagram size={20}  />
             </motion.div>
           </Link>
         </div>
