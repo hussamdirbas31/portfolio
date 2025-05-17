@@ -47,8 +47,7 @@ const Projects = () => {
         >
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
             <span className="relative inline-block">
-            <span className=' text-white'>My</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00d8d8] via-[#00b4b4] to-[#008c8c]">
+              <span className=" bg-clip-text bg-gradient-to-r from-[#00d8d8] via-[#00b4b4] to-[#008c8c]">
                  Projects
               </span>
               <motion.span 
@@ -90,14 +89,11 @@ const Projects = () => {
                 transition: { duration: 0.3 }
               }}
             >
-              {/* Glow effect wrapper */}
               <div className="absolute inset-0 rounded-xl overflow-hidden">
                 <div className="absolute inset-0 bg-[#00b4b4] opacity-0 group-hover:opacity-10 blur-md transition-opacity duration-500"></div>
               </div>
               
-              {/* Project card */}
               <div className="relative h-full bg-gradient-to-b from-[#111] to-[#0a0a0a] rounded-xl border border-[#252525] group-hover:border-[#00b4b4]/50 transition-all duration-300 shadow-lg shadow-black/50 overflow-hidden">
-                {/* Image container with parallax effect */}
                 <Link href={project.link} target="_blank" className="block overflow-hidden h-60 md:h-64 lg:h-72 relative">
                   <motion.div
                     className="w-full h-full relative"
@@ -112,14 +108,11 @@ const Projects = () => {
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                       style={{ filter: 'brightness(0.85)' }}
                     />
-                    {/* Gradient overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500"></div>
                   </motion.div>
                 </Link>
 
-                {/* Card content */}
                 <div className="p-6 relative">
-                  {/* Tech stack tags */}
                   <motion.div 
                     className="flex flex-wrap gap-2 mb-4 -mt-8"
                     initial={{ opacity: 0, y: 10 }}
@@ -141,7 +134,6 @@ const Projects = () => {
                     ))}
                   </motion.div>
                   
-                  {/* Project title with animated bullet */}
                   <motion.h3 
                     className="text-xl font-bold text-white mb-3 group-hover:text-[#00d8d8] transition-colors flex items-start"
                     initial={{ opacity: 0 }}
