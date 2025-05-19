@@ -9,7 +9,6 @@ const Skills = () => {
     <section id='skills' className='relative w-full py-16 bg-black '>
       <div className="container mx-auto px-4">
         
-        {/* العنوان */}
         <motion.div
           className="flex flex-col items-center mb-12"
           initial={{ opacity: 0, y: 20 }}
@@ -34,7 +33,6 @@ const Skills = () => {
           </p>
         </motion.div>
 
-        {/* شبكة المهارات بنفس تصميم About */}
         <motion.div
           className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-5"
           initial={{ opacity: 0 }}
@@ -76,7 +74,6 @@ const Skills = () => {
           ))}
         </motion.div>
 
-        {/* فاصل زخرفي متطابق مع About */}
         <motion.div
           className="mt-16 mx-auto w-24 h-1 bg-gradient-to-r from-[#00b4b4] to-[#008c8c] rounded-full"
           initial={{ scaleX: 0 }}

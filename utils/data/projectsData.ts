@@ -1,9 +1,18 @@
-// utils/data/projectsData.ts
 import ecommerce from '@/public/projects/ecommerce.jpg'
-import ody from '../../public/projects/crypto.jpg'
-import cold from '../../public/projects/cold.jpeg'
-import  pixel from  '@/public/projects/pixelcraft.jpg'
-export const projectsData = [
+import ody from '@/public/projects/crypto.jpg'
+import cold from '@/public/projects/cold.jpeg'
+import pixel from '@/public/projects/pixelcraft.jpg'
+import { StaticImageData } from 'next/image'
+
+interface ProjectData {
+  title: string
+  description: string
+  imageUrl: StaticImageData
+  link: string
+  tech: string[]
+}
+
+export const projectsData: ProjectData[] = [
   {
     title: "Ecommerce",
     description: "Clothing store (Dashboard, add to cart)",
@@ -16,7 +25,7 @@ export const projectsData = [
     description: "Crypto webpage (figma)",
     imageUrl: ody,
     link: 'https://github.com/hussamdirbas31/odyssey',
-    tech: ["Figma", "UI/UX", "Next js "]
+    tech: ["Figma", "UI/UX", "Next js"]
   },
   {
     title: "Weather app",

@@ -5,16 +5,15 @@ import profileImage from '@/public/image.jpg';
 import { imageVariants } from './types';
 
 const ProfileImage = () => {
-  // أنيميشن الطفو مع تحسينات
   const floatingAnimation = {
-    y: [0, -10, -5, 0], // حركة أكثر سلاسة
-    rotate: [0, 1.5, -1.5, 0], // دوران أكثر دقة
-    scale: [1, 1.02, 1], // تأثير تنفس خفيف
+    y: [0, -10, -5, 0], 
+    rotate: [0, 1.5, -1.5, 0], 
+    scale: [1, 1.02, 1], 
     transition: {
       duration: 5,
       repeat: Infinity,
       ease: "easeInOut",
-      times: [0, 0.3, 0.7, 1] // تحسين توقيت الحركة
+      times: [0, 0.3, 0.7, 1] 
     }
   };
 
