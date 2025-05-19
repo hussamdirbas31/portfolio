@@ -1,23 +1,23 @@
-
-import ecommerce from '../../public/projects/ecommerce.jpg'
-import cold from '../../public/projects/cold.jpeg'
-import crypto from '../../public/projects/crypto.jpg'
-import chatify from '../../public/projects/chatify.jpg'
-import pixelcraft from '../../public/projects/pixelcraft.jpg'
+import { StaticImageData } from 'next/image';
+import ecommerce from '../../public/projects/ecommerce.jpg';
+import cold from '../../public/projects/cold.jpeg';
+import crypto from '../../public/projects/crypto.jpg';
+import chatify from '../../public/projects/chatify.jpg';
+import pixelcraft from '../../public/projects/pixelcraft.jpg';
 
 interface ProjectData {
-  title: string
-  description: string
-  imageUrl: any 
-  link: string
-  tech: string[]
+  title: string;
+  description: string;
+  imageUrl: StaticImageData;
+  link: string;
+  tech: string[];
 }
 
 export const projectsData: ProjectData[] = [
   {
     title: "Ecommerce",
     description: "Clothing store (Dashboard, add to cart)",
-    imageUrl: ecommerce ,
+    imageUrl: ecommerce,
     link: 'https://github.com/hussamdirbas31/E-commerce',
     tech: ["React js", "Firebase", "Redux"]
   },
@@ -49,4 +49,4 @@ export const projectsData: ProjectData[] = [
     link: 'https://github.com/hussamdirbas31/Chatify',
     tech: ["Next js", "Mocked data", "Firebase Authentication"]
   },
-]
+];
