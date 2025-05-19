@@ -1,5 +1,5 @@
 'use client'
-import { projectsData } from '@/utils/data/projectsData'
+import { projectsData } from '@/utils/data/data'
 import ProjectCard from './ProjectCard'
 import BackgroundElements from './BackgroundElements'
 import SectionHeader from './SectionHeader'

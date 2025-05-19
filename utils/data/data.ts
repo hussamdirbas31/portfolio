@@ -3,8 +3,7 @@ import ecommerce from '../../public/ecommerce.jpg';
 import cold from '../../public/cold.jpeg';
 import crypto from '../../public/crypto.jpg';
 import chatify from '../../public/chatify.jpg';
-import pixelcraft from '../../public/image.jpg';
-
+import pixels from '../../public/instagram.png'
 interface ProjectData {
   title: string;
   description: string;
@@ -38,7 +37,7 @@ export const projectsData: ProjectData[] = [
   {
     title: "PixelCraft",
     description: "Image Gallery",
-    imageUrl: pixelcraft,
+    imageUrl: pixels,
     link: 'https://pixels-wheat.vercel.app/',
     tech: ["Next js", "API Integration"]
   },
