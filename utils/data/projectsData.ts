@@ -49,6 +49,6 @@ export const projectsData: ProjectData[] = [
     description: "Social media app",
     imageUrl: chatify,
     link: 'https://github.com/hussamdirbas31/Chatify',
-    tech: ["Next js", "Mocked data", "Firebase Authentication"]
+    tech: ["Next js", "Mocke data", "Firebase Authentication"]
   },
 ]
