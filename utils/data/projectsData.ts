@@ -1,9 +1,9 @@
 import { StaticImageData } from 'next/image';
-import ecommerce from '../../public/projects/ecommerce.jpg';
-import cold from '../../public/projects/cold.jpeg';
-import crypto from '../../public/projects/crypto.jpg';
-import chatify from '../../public/projects/chatify.jpg';
-import pixelcraft from '../../public/projects/pixelcraft.jpg';
+import ecommerce from '../../public/ecommerce.jpg';
+import cold from '../../public/cold.jpeg';
+import crypto from '../../public/crypto.jpg';
+import chatify from '../../public/chatify.jpg';
+import pixelcraft from '../../public/pixelcraft.jpg';
 
 interface ProjectData {
   title: string;
