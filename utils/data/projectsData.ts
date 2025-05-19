@@ -1,4 +1,3 @@
-
 interface ProjectData {
   title: string
   description: string
@@ -41,6 +40,6 @@ export const projectsData: ProjectData[] = [
     description: "Social media app",
     imageUrl: 'https://j.top4top.io/p_3426xhny31.jpg',
     link: 'https://github.com/hussamdirbas31/Chatify',
-    tech: ["Next js", "Mocke data", "Firebase Authentication"]
+    tech: ["Next js", "Mocked data", "Firebase Authentication"]
   },
 ]

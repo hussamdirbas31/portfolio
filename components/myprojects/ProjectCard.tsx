@@ -2,12 +2,11 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { StaticImageData } from 'next/image'
 
 interface Project {
   title: string
   description: string
-  imageUrl: StaticImageData
+  imageUrl: string
   link: string
   tech: string[]
 }
@@ -34,14 +33,11 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
         transition: { duration: 0.3 }
       }}
     >
-      {/* الخلفية المؤثرات */}
       <div className="absolute inset-0 rounded-xl overflow-hidden">
         <div className="absolute inset-0 bg-[#00b4b4] opacity-0 group-hover:opacity-10 blur-md transition-opacity duration-500"></div>
       </div>
       
-      {/* البطاقة الرئيسية */}
       <div className="relative h-full bg-gradient-to-b from-[#111] to-[#0a0a0a] rounded-xl border border-[#252525] group-hover:border-[#00b4b4]/50 transition-all duration-300 shadow-lg shadow-black/50 overflow-hidden flex flex-col">
-        {/* قسم الصورة */}
         <Link href={project.link} target="_blank" className="block overflow-hidden h-48 sm:h-56 md:h-64 lg:h-72 relative flex-shrink-0">
           <motion.div
             className="w-full h-full relative"
@@ -56,15 +52,13 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
               className="object-cover transition-transform duration-700 group-hover:scale-105"
               style={{ filter: 'brightness(0.85)' }}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              priority={index < 3} // تحميل أول 3 صور ب الأولوية
+              priority={index < 3}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500"></div>
           </motion.div>
         </Link>
 
-        {/* محتوى البطاقة */}
         <div className="p-5 sm:p-6 flex-grow flex flex-col">
-          {/* تقنيات المستخدمة */}
           <motion.div 
             className="flex flex-wrap gap-2 mb-3 -mt-7"
             initial={{ opacity: 0, y: 10 }}
@@ -86,7 +80,6 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
             ))}
           </motion.div>
           
-          {/* عنوان المشروع */}
           <motion.h3 
             className="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-[#00d8d8] transition-colors flex items-start"
             initial={{ opacity: 0 }}
@@ -110,7 +103,6 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
             {project.title}
           </motion.h3>
 
-          {/* وصف المشروع */}
           <motion.p 
             className="text-[#d0d0d0] text-xs sm:text-sm mb-4 sm:mb-6 leading-relaxed flex-grow"
             initial={{ opacity: 0 }}
@@ -121,7 +113,6 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
             {project.description}
           </motion.p>
 
-          {/* زر الإجراء */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
