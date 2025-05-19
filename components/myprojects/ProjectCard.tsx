@@ -28,18 +28,21 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
         ease: "backOut"
       }}
       viewport={{ once: true, margin: "-50px" }}
-      className="group relative"
+      className="group relative w-full"
       whileHover={{ 
         y: -8,
         transition: { duration: 0.3 }
       }}
     >
+      {/* الخلفية المؤثرات */}
       <div className="absolute inset-0 rounded-xl overflow-hidden">
         <div className="absolute inset-0 bg-[#00b4b4] opacity-0 group-hover:opacity-10 blur-md transition-opacity duration-500"></div>
       </div>
       
-      <div className="relative h-full bg-gradient-to-b from-[#111] to-[#0a0a0a] rounded-xl border border-[#252525] group-hover:border-[#00b4b4]/50 transition-all duration-300 shadow-lg shadow-black/50 overflow-hidden">
-        <Link href={project.link} target="_blank" className="block overflow-hidden h-60 md:h-64 lg:h-72 relative">
+      {/* البطاقة الرئيسية */}
+      <div className="relative h-full bg-gradient-to-b from-[#111] to-[#0a0a0a] rounded-xl border border-[#252525] group-hover:border-[#00b4b4]/50 transition-all duration-300 shadow-lg shadow-black/50 overflow-hidden flex flex-col">
+        {/* قسم الصورة */}
+        <Link href={project.link} target="_blank" className="block overflow-hidden h-48 sm:h-56 md:h-64 lg:h-72 relative flex-shrink-0">
           <motion.div
             className="w-full h-full relative"
             whileHover={{
@@ -52,14 +55,18 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-105"
               style={{ filter: 'brightness(0.85)' }}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              priority={index < 3} // تحميل أول 3 صور ب الأولوية
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500"></div>
           </motion.div>
         </Link>
 
-        <div className="p-6 relative">
+        {/* محتوى البطاقة */}
+        <div className="p-5 sm:p-6 flex-grow flex flex-col">
+          {/* تقنيات المستخدمة */}
           <motion.div 
-            className="flex flex-wrap gap-2 mb-4 -mt-8"
+            className="flex flex-wrap gap-2 mb-3 -mt-7"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
@@ -68,7 +75,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
             {project.tech.map((tech, i) => (
               <motion.span 
                 key={i}
-                className="text-xs px-3 py-1 bg-[#00b4b4]/10 text-[#00e6e6] rounded-full border border-[#00b4b4]/20 backdrop-blur-sm"
+                className="text-[0.65rem] sm:text-xs px-2.5 py-1 bg-[#00b4b4]/10 text-[#00e6e6] rounded-full border border-[#00b4b4]/20 backdrop-blur-sm"
                 whileHover={{
                   scale: 1.1,
                   backgroundColor: 'rgba(0, 180, 180, 0.2)'
@@ -79,15 +86,16 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
             ))}
           </motion.div>
           
+          {/* عنوان المشروع */}
           <motion.h3 
-            className="text-xl font-bold text-white mb-3 group-hover:text-[#00d8d8] transition-colors flex items-start"
+            className="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-[#00d8d8] transition-colors flex items-start"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
             viewport={{ once: true }}
           >
             <motion.span 
-              className="inline-block mr-2 text-[#00b4b4] mt-1"
+              className="inline-block mr-2 text-[#00b4b4] mt-1 text-sm"
               animate={{
                 x: [0, 2, 0]
               }}
@@ -102,8 +110,9 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
             {project.title}
           </motion.h3>
 
+          {/* وصف المشروع */}
           <motion.p 
-            className="text-[#d0d0d0] text-sm mb-6 leading-relaxed"
+            className="text-[#d0d0d0] text-xs sm:text-sm mb-4 sm:mb-6 leading-relaxed flex-grow"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.5 }}
@@ -112,21 +121,22 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
             {project.description}
           </motion.p>
 
+          {/* زر الإجراء */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.6 }}
             viewport={{ once: true }}
-            className="relative"
+            className="relative mt-auto"
           >
             <Link
               href={project.link}
               target="_blank"
-              className="relative inline-flex items-center justify-center px-5 py-2.5 overflow-hidden group rounded-lg"
+              className="relative inline-flex items-center justify-center px-4 py-2 sm:px-5 sm:py-2.5 overflow-hidden group rounded-lg w-full sm:w-auto"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-[#00b4b4] to-[#008c8c] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
               <span className="absolute left-0 w-0 h-full bg-[#00b4b4] group-hover:w-full transition-all duration-300 ease-out"></span>
-              <span className="relative z-10 flex items-center text-sm font-medium text-white group-hover:text-white transition-colors duration-300">
+              <span className="relative z-10 flex items-center justify-center text-xs sm:text-sm font-medium text-white group-hover:text-white transition-colors duration-300 w-full">
                 <span>View Project</span>
                 <motion.span 
                   className="ml-2"
