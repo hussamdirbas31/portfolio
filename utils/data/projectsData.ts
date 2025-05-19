@@ -3,7 +3,7 @@ import ody from '@/public/projects/crypto.jpg'
 import cold from '@/public/projects/cold.jpeg'
 import pixel from '@/public/projects/pixelcraft.jpg'
 import { StaticImageData } from 'next/image'
-
+import chatify from '@/public/projects/chatify.jpg'
 interface ProjectData {
   title: string
   description: string
@@ -40,5 +40,12 @@ export const projectsData: ProjectData[] = [
     imageUrl: pixel,
     link: 'https://pixels-wheat.vercel.app/',
     tech: ["Next js", "API Integration"]
+  },
+  {
+    title: "Chatify",
+    description: "Social media app ",
+    imageUrl: chatify,
+    link: 'https://github.com/hussamdirbas31/Chatify',
+    tech: ["Next js", "Mocked data","Firebase Authentication"]
   },
 ]
