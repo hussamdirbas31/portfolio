@@ -1,9 +1,12 @@
-import ecommerce from '@/public/projects/ecommerce.jpg'
-import ody from '@/public/projects/crypto.jpg'
-import cold from '@/public/projects/cold.jpeg'
-import pixel from '@/public/projects/pixelcraft.jpg'
 import { StaticImageData } from 'next/image'
-import chatify from '@/public/projects/chatify.jpg'
+
+// Import images using relative paths from public folder
+import ecommerce from '../../public/projects/ecommerce.jpg'
+import ody from '../../public/projects/crypto.jpg'
+import cold from '../../public/projects/cold.jpeg'
+import pixel from '../../public/projects/pixelcraft.jpg'
+import chatify from '../../public/projects/chatify.jpg'
+
 interface ProjectData {
   title: string
   description: string
@@ -43,9 +46,9 @@ export const projectsData: ProjectData[] = [
   },
   {
     title: "Chatify",
-    description: "Social media app ",
+    description: "Social media app",
     imageUrl: chatify,
     link: 'https://github.com/hussamdirbas31/Chatify',
-    tech: ["Next js", "Mocked data","Firebase Authentication"]
+    tech: ["Next js", "Mocked data", "Firebase Authentication"]
   },
 ]
