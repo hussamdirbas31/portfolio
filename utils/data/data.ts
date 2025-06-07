@@ -17,7 +17,7 @@ export const projectsData: ProjectData[] = [
     title: "Ecommerce",
     description: "Clothing store (Dashboard, add to cart)",
     imageUrl: ecommerce,
-    link: 'https://github.com/hussamdirbas31/E-commerce',
+    link: 'https://artizia-miniclone.web.app/',
     tech: ["React js", "Firebase", "Redux"]
   },
   {
