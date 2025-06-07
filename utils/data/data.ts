@@ -3,7 +3,7 @@ import ecommerce from '../../public/ecommerce.jpg';
 import cold from '../../public/cold.jpeg';
 import crypto from '../../public/crypto.jpg';
 import chatify from '../../public/chatify.jpg';
-import pixels from '../../public/instagram.png'
+import pixels from '../../public/pixelcraft.jpg'
 interface ProjectData {
   title: string;
   description: string;
