@@ -1,6 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import VpnModal from './UseVpnModal'
@@ -8,7 +8,7 @@ import VpnModal from './UseVpnModal'
 interface Project {
   title: string
   description: string
-  imageUrl: string
+  imageUrl: string | StaticImageData // Updated to support both types
   link: string
   tech: string[]
 }
