@@ -6,11 +6,11 @@ export const skillsData = [
     'Firebase',
     'Tailwind',
     'Git',
-    'Strapi',
     'Bootstrap',
     'Redux',
     'React js',
     'Next js',
-    
+    ,'Laravel',
+    'php',
   ]
   
