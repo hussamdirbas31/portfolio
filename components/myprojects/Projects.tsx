@@ -8,7 +8,7 @@ import DecorativeElement from './DecorativeElement'
 const Projects = () => {
 console.log("renderd")
   return (
-    <section id="projects" className="w-full py-24 z-50 bg-black relative ">
+    <section id="projects" className="w-full py-24  bg-black relative ">
       <BackgroundElements />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
