@@ -6,7 +6,7 @@ import chatify from '../../public/chatify.jpg';
 import pixels from '../../public/pixelcraft.jpg';
 import nafir from '../../public/nafir.jpg';
 import ghiath from '../../public/ghiath.jpg';
-
+//images added
 interface ProjectData {
   title: string;
   description: string;
