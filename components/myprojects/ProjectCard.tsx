@@ -8,7 +8,7 @@ import VpnModal from './UseVpnModal'
 interface Project {
   title: string
   description: string
-  imageUrl: string | StaticImageData // Updated to support both types
+  imageUrl: string | StaticImageData
   link: string
   tech: string[]
 }
@@ -31,17 +31,17 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
   return (
     <>
       <motion.div
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ 
           duration: 0.6, 
           delay: index * 0.1,
           ease: "backOut"
         }}
-        viewport={{ once: true, margin: "-50px" }}
+        viewport={{ once: true, margin: "-20px" }}
         className="group relative w-full"
         whileHover={{ 
-          y: -8,
+          y: -4,
           transition: { duration: 0.3 }
         }}
       >
@@ -54,7 +54,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
             href={project.link} 
             target="_blank" 
             onClick={(e) => handleProjectClick(e, project.link)}
-            className="block overflow-hidden h-48 sm:h-56 md:h-64 lg:h-72 relative flex-shrink-0"
+            className="block overflow-hidden h-40 sm:h-48 md:h-56 lg:h-64 relative flex-shrink-0"
           >
             <motion.div
               className="w-full h-full relative"
@@ -75,18 +75,18 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
             </motion.div>
           </Link>
 
-          <div className="p-5 sm:p-6 flex-grow flex flex-col">
+          <div className="p-4 sm:p-5 md:p-6 flex-grow flex flex-col">
             <motion.div 
-              className="flex flex-wrap gap-2 mb-3 -mt-7"
+              className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 -mt-6"
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-20px" }}
             >
               {project.tech.map((tech, i) => (
                 <motion.span 
                   key={i}
-                  className="text-[0.65rem] sm:text-xs px-2.5 py-1 bg-[#00b4b4]/10 text-[#00e6e6] rounded-full border border-[#00b4b4]/20 backdrop-blur-sm"
+                  className="text-[0.6rem] sm:text-xs px-2 py-1 bg-[#00b4b4]/10 text-[#00e6e6] rounded-full border border-[#00b4b4]/20 backdrop-blur-sm"
                   whileHover={{
                     scale: 1.1,
                     backgroundColor: 'rgba(0, 180, 180, 0.2)'
@@ -98,14 +98,14 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
             </motion.div>
             
             <motion.h3 
-              className="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-[#00d8d8] transition-colors flex items-start"
+              className="text-base sm:text-lg md:text-xl font-bold text-white mb-2 group-hover:text-[#00d8d8] transition-colors flex items-start"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-20px" }}
             >
               <motion.span 
-                className="inline-block mr-2 text-[#00b4b4] mt-1 text-sm"
+                className="inline-block mr-2 text-[#00b4b4] mt-0.5 text-sm"
                 animate={{
                   x: [0, 2, 0]
                 }}
@@ -121,11 +121,11 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
             </motion.h3>
 
             <motion.p 
-              className="text-[#d0d0d0] text-xs sm:text-sm mb-4 sm:mb-6 leading-relaxed flex-grow"
+              className="text-[#d0d0d0] text-xs sm:text-sm mb-4 leading-relaxed flex-grow"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-20px" }}
             >
               {project.description}
             </motion.p>
@@ -134,14 +134,14 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.6 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-20px" }}
               className="relative mt-auto"
             >
               <Link
                 href={project.link}
                 target="_blank"
                 onClick={(e) => handleProjectClick(e, project.link)}
-                className="relative inline-flex items-center justify-center px-4 py-2 sm:px-5 sm:py-2.5 overflow-hidden group rounded-lg w-full sm:w-auto"
+                className="relative inline-flex items-center justify-center px-4 py-2 overflow-hidden group rounded-lg w-full text-center"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-[#00b4b4] to-[#008c8c] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                 <span className="absolute left-0 w-0 h-full bg-[#00b4b4] group-hover:w-full transition-all duration-300 ease-out"></span>

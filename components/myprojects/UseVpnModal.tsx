@@ -42,7 +42,7 @@ const VpnModal = ({ isOpen, onClose, redirectUrl }: VpnModalProps) => {
             initial={{ scale: 0.9, y: 20 }}
             animate={{ scale: 1, y: 0 }}
             exit={{ scale: 0.9, y: 20 }}
-            className="relative bg-gradient-to-br from-[#0a0a0a] to-[#111] border border-[#252525] rounded-xl max-w-md w-full p-6 shadow-2xl shadow-[#00b4b4]/10"
+            className="relative bg-gradient-to-br from-[#0a0a0a] to-[#111] border border-[#252525] rounded-xl max-w-md w-full p-6 shadow-2xl shadow-[#00b4b4]/10 mx-4"
           >
             <div className="absolute -top-3 -right-3">
               <button
